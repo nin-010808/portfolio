@@ -431,31 +431,33 @@
     };
     const projectDialog = document.getElementById("project-dialog");
 
-    document.querySelectorAll(".project-open").forEach((button) => {
-      button.addEventListener("click", () => {
-        const project = projectDetails[button.dataset.project];
-        if (!project) return;
-        document.getElementById("dialog-title").textContent = project.title;
-        document.getElementById("dialog-summary").textContent = project.summary;
-        ["story", "role", "meaning"].forEach((section) => {
-          const panel = document.querySelector(`[data-dialog-panel="${section}"]`);
-          panel.replaceChildren();
-          project[section].forEach((paragraph) => {
-            const element = document.createElement("p");
-            element.textContent = paragraph;
-            panel.appendChild(element);
-          });
+    function openProject(projectName) {
+      const project = projectDetails[projectName];
+      if (!project) return;
+      document.getElementById("dialog-title").textContent = project.title;
+      document.getElementById("dialog-summary").textContent = project.summary;
+      ["story", "role", "meaning"].forEach((section) => {
+        const panel = document.querySelector(`[data-dialog-panel="${section}"]`);
+        panel.replaceChildren();
+        project[section].forEach((paragraph) => {
+          const element = document.createElement("p");
+          element.textContent = paragraph;
+          panel.appendChild(element);
         });
-        document.getElementById("dialog-tags").replaceChildren(
-          ...project.tags.map((tag) => {
-            const item = document.createElement("li");
-            item.textContent = tag;
-            return item;
-          })
-        );
-        activateDialogTab("story");
-        projectDialog.showModal();
       });
+      document.getElementById("dialog-tags").replaceChildren(
+        ...project.tags.map((tag) => {
+          const item = document.createElement("li");
+          item.textContent = tag;
+          return item;
+        })
+      );
+      activateDialogTab("story");
+      projectDialog.showModal();
+    }
+
+    document.querySelectorAll(".project-open").forEach((button) => {
+      button.addEventListener("click", () => openProject(button.dataset.project));
     });
 
     const dialogTabs = [...document.querySelectorAll("[data-dialog-tab]")];
