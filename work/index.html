@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal highlights and interests of Emmanuel Albert A. Del Mundo">
+  <title>My World | Emmanuel Albert A. Del Mundo</title>
+  <style>
+    :root {
+      --ink: #e8e7df;
+      --muted: #a7aaa2;
+      --paper: #111412;
+      --panel: #1b201d;
+      --accent: #c3d17a;
+      --line: #343a35;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(rgba(195, 209, 122, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(195, 209, 122, 0.025) 1px, transparent 1px),
+        var(--paper);
+      background-size: 44px 44px;
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1180px, calc(100% - 48px)); margin: 0 auto; }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      border-bottom: 1px solid var(--line);
+      background: rgba(17, 20, 18, 0.92);
+      backdrop-filter: blur(12px);
+    }
+    nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .logo { font-size: 1rem; font-weight: 800; letter-spacing: 0.02em; text-transform: uppercase; }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; align-items: center; gap: clamp(10px, 3vw, 28px); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+    .nav-links a:hover, .nav-links [aria-current="page"] { color: var(--accent); }
+    .nav-links [aria-current="page"] { border-bottom: 2px solid var(--accent); padding: 8px 0; }
+    .nav-contact { padding: 9px 12px; border: 1px solid #59604d; border-radius: 3px; color: var(--ink); background: transparent; font: inherit; letter-spacing: inherit; text-transform: inherit; cursor: pointer; }
+    .nav-contact:hover { border-color: var(--accent); color: var(--accent); }
+    .page { padding-top: 82px; padding-bottom: 100px; }
+    .eyebrow, .project-kind, .project-label, .dialog-label {
+      color: var(--accent);
+      font: 0.7rem Consolas, "Courier New", monospace;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .eyebrow { display: flex; align-items: center; gap: 10px; }
+    .eyebrow::before { content: ""; width: 22px; height: 2px; background: var(--accent); }
+    h1 { margin: 16px 0; font-size: clamp(3rem, 8vw, 6.5rem); line-height: 0.9; letter-spacing: -0.07em; text-transform: uppercase; }
+    .intro { max-width: 600px; margin: 0 0 42px; color: var(--muted); line-height: 1.7; }
+    .projects-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .project-card {
+      min-height: 390px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      overflow: hidden;
+      padding: 22px;
+      border: 1px solid #3c433d;
+      background: var(--panel);
+    }
+    .project-label { position: absolute; top: 24px; left: 24px; color: #aeb39d; font-size: 0.64rem; }
+    .mockup {
+      position: absolute;
+      top: 52px;
+      right: 7%;
+      width: 78%;
+      height: 230px;
+      border: 1px solid #737b6c;
+      border-bottom-width: 8px;
+      background:
+        linear-gradient(90deg, #242a25 0 22%, transparent 22%),
+        linear-gradient(0deg, transparent 0 73%, #353d34 73% 74%, transparent 74%),
+        linear-gradient(135deg, var(--accent) 0 1px, transparent 1px 18px),
+        #171b18;
+      background-size: auto, auto, 19px 19px, auto;
+      transform: rotate(-3deg);
+      box-shadow: 0 22px 40px rgba(0, 0, 0, 0.28);
+    }
+    .project-card:nth-child(2) .mockup {
+      background:
+        linear-gradient(90deg, #342c20 0 22%, transparent 22%),
+        linear-gradient(0deg, transparent 0 73%, #53442e 73% 74%, transparent 74%),
+        linear-gradient(135deg, #e2a35c 0 1px, transparent 1px 18px),
+        #1d1b17;
+      background-size: auto, auto, 19px 19px, auto;
+    }
+    .project-card:nth-child(3) .mockup {
+      background:
+        linear-gradient(90deg, #242a25 0 22%, transparent 22%),
+        linear-gradient(0deg, transparent 0 73%, #353d34 73% 74%, transparent 74%),
+        linear-gradient(135deg, #8292a1 0 1px, transparent 1px 18px),
+        #171b18;
+      background-size: auto, auto, 19px 19px, auto;
+    }
+    .project-card:nth-child(4) .mockup {
+      background:
+        linear-gradient(90deg, #302920 0 22%, transparent 22%),
+        linear-gradient(0deg, transparent 0 73%, #4a3e30 73% 74%, transparent 74%),
+        linear-gradient(135deg, #c77f61 0 1px, transparent 1px 18px),
+        #1d1a17;
+      background-size: auto, auto, 19px 19px, auto;
+    }
+    .project-info { position: relative; z-index: 1; padding-top: 16px; border-top: 1px solid #414840; }
+    .project-kind { font-size: 0.66rem; }
+    h2 { margin: 8px 0; font-size: 1.25rem; letter-spacing: -0.03em; text-transform: uppercase; }
+    .project-info p { margin: 0; color: var(--muted); font-size: 0.86rem; line-height: 1.6; }
+    .project-open {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 14px;
+      padding: 9px 0;
+      border: 0;
+      border-bottom: 1px solid #687051;
+      color: var(--accent);
+      background: transparent;
+      font: 700 0.68rem Consolas, "Courier New", monospace;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+    .project-open:focus-visible, .dialog-close:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+    .project-dialog {
+      width: min(620px, calc(100% - 32px));
+      max-height: 80vh;
+      padding: 0;
+      overflow: auto;
+      border: 1px solid #59604d;
+      border-radius: 4px;
+      color: var(--ink);
+      background: #171b18;
+      box-shadow: 0 28px 90px rgba(0, 0, 0, 0.55);
+    }
+    .project-dialog::backdrop { background: rgba(5, 7, 6, 0.82); backdrop-filter: blur(5px); }
+    .dialog-content { padding: clamp(24px, 6vw, 42px); }
+    .dialog-topline { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+    .dialog-label { color: var(--accent); }
+    .dialog-close { width: 38px; height: 38px; border: 1px solid #59604d; border-radius: 3px; color: var(--ink); background: transparent; font-size: 1.2rem; cursor: pointer; }
+    .project-dialog h2 { margin: 28px 0 14px; font-size: clamp(2rem, 8vw, 3.5rem); }
+    .project-dialog p { margin: 0; color: #b7bab2; line-height: 1.75; }
+    .dialog-focus { margin: 28px 0 0; padding-top: 18px; border-top: 1px solid var(--line); }
+    .dialog-focus dt { margin-bottom: 9px; color: var(--accent); font: 0.68rem Consolas, monospace; letter-spacing: 0.12em; text-transform: uppercase; }
+    .dialog-focus dd { margin: 0; color: #d0d2cb; line-height: 1.65; }
+    .contact-details { display: grid; gap: 12px; margin-top: 24px; }
+    .contact-details a { display: grid; gap: 6px; padding: 15px 16px; border: 1px solid #414840; color: var(--ink); }
+    .contact-details a:hover { border-color: var(--accent); }
+    .contact-details span { color: var(--accent); font: 0.68rem Consolas, monospace; letter-spacing: 0.12em; text-transform: uppercase; }
+    footer { padding: 30px 0; border-top: 1px solid var(--line); color: #888d84; font-size: 0.82rem; }
+    .footer-row { display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+    .footer-row a:hover { color: var(--accent); }
+    @media (max-width: 700px) {
+      .container { width: min(100% - 28px, 1180px); }
+      .page { padding-top: 58px; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .project-card { min-height: 360px; }
+      nav { gap: 10px; }
+      .nav-links { gap: 8px; font-size: 0.62rem; }
+      .nav-contact { padding: 8px; }
+      .logo { font-size: 0.82rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="container" aria-label="Main navigation">
+      <a class="logo" href="../Main%20interface.html#home">My Portfolio<span>.</span></a>
+      <div class="nav-links">
+        <a href="index.html" aria-current="page">My world</a>
+        <a href="../capabilities/index.html">Interests</a>
+        <a href="../Main%20interface.html#home">Home</a>
+        <button class="nav-contact" type="button" data-open-contact aria-haspopup="dialog">Contact me</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container page">
+    <p class="eyebrow">Personal highlights</p>
+    <h1>Things I'm part of</h1>
+    <p class="intro">A few communities, experiences, and interests that are part of my life. Tap a card to read more.</p>
+
+    <div class="projects-grid">
+      <article class="project-card">
+        <span class="project-label">COMMUNITY</span>
+        <div class="mockup" aria-hidden="true"></div>
+        <div class="project-info">
+          <span class="project-kind">KABATAANG MABA</span>
+          <h2>Helping our community</h2>
+          <p>A youth group focused on helping kids in our barangay.</p>
+          <button class="project-open" type="button" data-project="maba" aria-haspopup="dialog">Learn more <span aria-hidden="true">↗</span></button>
+        </div>
+      </article>
+      <article class="project-card">
+        <span class="project-label">COMMUNITY</span>
+        <div class="mockup" aria-hidden="true"></div>
+        <div class="project-info">
+          <span class="project-kind">ORVION</span>
+          <h2>A community I'm part of</h2>
+          <p>One of the communities I’m glad to be part of.</p>
+          <button class="project-open" type="button" data-project="orvion" aria-haspopup="dialog">Learn more <span aria-hidden="true">↗</span></button>
+        </div>
+      </article>
+      <article class="project-card">
+        <span class="project-label">HACKATHON</span>
+        <div class="mockup" aria-hidden="true"></div>
+        <div class="project-info">
+          <span class="project-kind">CONEXUS</span>
+          <h2>Hackathon experience</h2>
+          <p>I pitched in at a hackathon for Conexus.</p>
+          <button class="project-open" type="button" data-project="conexus" aria-haspopup="dialog">Learn more <span aria-hidden="true">↗</span></button>
+        </div>
+      </article>
+      <article class="project-card">
+        <span class="project-label">FREE TIME</span>
+        <div class="mockup" aria-hidden="true"></div>
+        <div class="project-info">
+          <span class="project-kind">BASKETBALL · ONLINE GAMES</span>
+          <h2>Time with friends</h2>
+          <p>Playing basketball, enjoying online games, and spending time with friends.</p>
+          <button class="project-open" type="button" data-project="friends" aria-haspopup="dialog">Learn more <span aria-hidden="true">↗</span></button>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <dialog class="project-dialog" id="project-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-content">
+      <div class="dialog-topline">
+        <span class="dialog-label">PERSONAL HIGHLIGHT</span>
+        <button class="dialog-close" type="button" aria-label="Close project details">×</button>
+      </div>
+      <h2 id="dialog-title"></h2>
+      <p id="dialog-summary"></p>
+      <dl class="dialog-focus">
+        <dt>A little more</dt>
+        <dd id="dialog-focus"></dd>
+      </dl>
+    </div>
+  </dialog>
+
+  <footer>
+    <div class="container footer-row">
+      <span>&copy; <span id="year"></span> Emmanuel Albert A. Del Mundo</span>
+      <span><a href="https://www.facebook.com/emmanuelalbert.delmundo.5">Facebook</a></span>
+    </div>
+  </footer>
+
+  <dialog class="project-dialog" id="contact-dialog" aria-labelledby="contact-dialog-title">
+    <div class="dialog-content">
+      <div class="dialog-topline">
+        <span class="dialog-label">GET IN TOUCH</span>
+        <button class="dialog-close" type="button" id="contact-close" aria-label="Close contact details">×</button>
+      </div>
+      <h2 id="contact-dialog-title">Contact me</h2>
+      <div class="contact-details">
+        <a href="mailto:emmanueldelmundoedm08@gmail.com"><span>Email</span>emmanueldelmundoedm08@gmail.com</a>
+        <a href="tel:+639614195134"><span>Phone</span>09614195134</a>
+      </div>
+    </div>
+  </dialog>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const projectDetails = {
+      maba: {
+        title: "Kabataang MABA",
+        summary: "I'm part of Kabataang MABA, a group focused on helping kids in our barangay.",
+        focus: "Community involvement and supporting children in the barangay."
+      },
+      orvion: {
+        title: "Orvion",
+        summary: "I'm part of Orvion and glad to be connected with the community.",
+        focus: "Being part of a community and sharing the experience with its members."
+      },
+      conexus: {
+        title: "Conexus Hackathon",
+        summary: "I pitched in at a hackathon for Conexus.",
+        focus: "Taking part in a collaborative hackathon experience."
+      },
+      friends: {
+        title: "Things I enjoy",
+        summary: "I enjoy playing basketball, online games, and spending time with friends.",
+        focus: "Making time for hobbies and the people close to me."
+      }
+    };
+    const projectDialog = document.getElementById("project-dialog");
+
+    document.querySelectorAll(".project-open").forEach((button) => {
+      button.addEventListener("click", () => {
+        const project = projectDetails[button.dataset.project];
+        if (!project) return;
+        document.getElementById("dialog-title").textContent = project.title;
+        document.getElementById("dialog-summary").textContent = project.summary;
+        document.getElementById("dialog-focus").textContent = project.focus;
+        projectDialog.showModal();
+      });
+    });
+
+    projectDialog.querySelector(".dialog-close").addEventListener("click", () => projectDialog.close());
+    projectDialog.addEventListener("click", (event) => {
+      if (event.target === projectDialog) projectDialog.close();
+    });
+
+    const contactDialog = document.getElementById("contact-dialog");
+    document.querySelectorAll("[data-open-contact]").forEach((button) => {
+      button.addEventListener("click", () => contactDialog.showModal());
+    });
+    document.getElementById("contact-close").addEventListener("click", () => contactDialog.close());
+    contactDialog.addEventListener("click", (event) => {
+      if (event.target === contactDialog) contactDialog.close();
+    });
+  </script>
+</body>
+</html>
