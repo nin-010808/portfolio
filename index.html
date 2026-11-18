@@ -1985,8 +1985,12 @@
     :root[data-theme="light"] body {
       color: var(--ink);
       background:
-        radial-gradient(circle at 84% 8%, rgba(85, 199, 211, 0.13), transparent 19rem),
+        radial-gradient(ellipse at 18% 18%, rgba(56, 88, 214, 0.08), transparent 38%),
+        radial-gradient(ellipse at 82% 72%, rgba(85, 199, 211, 0.1), transparent 36%),
+        linear-gradient(rgba(56, 88, 214, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(56, 88, 214, 0.025) 1px, transparent 1px),
         var(--paper);
+      background-size: 150% 150%, 150% 150%, 44px 44px, 44px 44px, auto;
     }
 
     :root[data-theme="light"] header {
@@ -2017,7 +2021,16 @@
 
     :root[data-theme="light"] .portrait-wrap {
       border-color: #d0d5df;
-      background: #e8edf2;
+      background: linear-gradient(145deg, #e8edf8, #f8faff);
+    }
+
+    :root[data-theme="light"] .portrait-wrap::before {
+      border-color: rgba(56, 88, 214, 0.2);
+      box-shadow: 0 0 24px rgba(56, 88, 214, 0.08), inset 0 0 20px rgba(85, 199, 211, 0.08);
+    }
+
+    :root[data-theme="light"] .portrait-wrap::after {
+      border-color: rgba(85, 199, 211, 0.4);
     }
 
     :root[data-theme="light"] .portrait {
@@ -2025,16 +2038,45 @@
       background:
         linear-gradient(145deg, transparent 48%, rgba(56, 88, 214, 0.08) 48.2% 48.7%, transparent 49%),
         radial-gradient(ellipse at 68% 40%, #aeb8c7 0 1px, transparent 2px),
-        linear-gradient(150deg, #ffffff, #e8edf2 74%),
-        linear-gradient(110deg, transparent 38%, rgba(56, 88, 214, 0.13) 49%, transparent 60%);
+        linear-gradient(150deg, #ffffff, #e4ebfa 74%),
+        linear-gradient(110deg, transparent 38%, rgba(85, 199, 211, 0.26) 49%, transparent 60%);
+    }
+
+    :root[data-theme="light"] .portrait::before {
+      background:
+        linear-gradient(145deg, transparent 49.5%, rgba(56, 88, 214, 0.4) 50%, transparent 50.5%),
+        linear-gradient(90deg, transparent 49.5%, rgba(56, 88, 214, 0.12) 50%, transparent 50.5%),
+        linear-gradient(0deg, transparent 49.5%, rgba(56, 88, 214, 0.12) 50%, transparent 50.5%);
+    }
+
+    :root[data-theme="light"] .portrait::after {
+      text-shadow: 0 0 24px rgba(56, 88, 214, 0.14);
+    }
+
+    :root[data-theme="light"] .portrait-hint {
+      color: #53658f;
+    }
+
+    :root[data-theme="light"] .hero-note::before {
+      box-shadow: 0 0 14px rgba(56, 88, 214, 0.35);
+    }
+
+    :root[data-theme="light"] .shape.blue {
+      box-shadow: 0 0 24px rgba(56, 88, 214, 0.24);
     }
 
     :root[data-theme="light"] .about,
     :root[data-theme="light"] .capabilities,
     :root[data-theme="light"] footer {
       color: var(--ink);
-      background: #eef1f5;
+      background:
+        radial-gradient(ellipse at 88% 12%, rgba(85, 199, 211, 0.12), transparent 42%),
+        #eef1f5;
       border-color: var(--line);
+    }
+
+    :root[data-theme="light"] .about::after {
+      color: rgba(56, 88, 214, 0.035);
     }
 
     :root[data-theme="light"] .about-copy p,
@@ -2059,6 +2101,54 @@
     :root[data-theme="light"] .contact-section {
       border-color: var(--line);
       background: #ffffff;
+    }
+
+    :root[data-theme="light"] .work-card {
+      background:
+        linear-gradient(145deg, rgba(56, 88, 214, 0.055), transparent 58%),
+        #ffffff;
+    }
+
+    :root[data-theme="light"] .work-card:hover,
+    :root[data-theme="light"] .project-card:hover,
+    :root[data-theme="light"] .capability:hover {
+      border-color: rgba(56, 88, 214, 0.42);
+      box-shadow: 0 14px 34px rgba(23, 32, 51, 0.1);
+    }
+
+    :root[data-theme="light"] .project-card::after {
+      color: #53658f;
+    }
+
+    :root[data-theme="light"] .mockup {
+      border-color: #aab2c0;
+      background:
+        linear-gradient(90deg, #e9edf5 0 22%, transparent 22%),
+        linear-gradient(0deg, transparent 0 73%, #cbd4e4 73% 74%, transparent 74%),
+        linear-gradient(135deg, rgba(56, 88, 214, 0.32) 0 1px, transparent 1px 18px),
+        #ffffff;
+      box-shadow: 0 18px 34px rgba(23, 32, 51, 0.12);
+    }
+
+    :root[data-theme="light"] .contact-section {
+      background:
+        radial-gradient(ellipse at 92% 10%, rgba(56, 88, 214, 0.08), transparent 40%),
+        #ffffff;
+    }
+
+    :root[data-theme="light"] .portrait-wrap:hover {
+      border-color: rgba(56, 88, 214, 0.45);
+      box-shadow: 0 0 42px rgba(56, 88, 214, 0.1);
+    }
+
+    :root[data-theme="light"] .portrait:hover,
+    :root[data-theme="light"] .portrait:focus-visible {
+      border-color: rgba(56, 88, 214, 0.6);
+      box-shadow: 0 0 32px rgba(56, 88, 214, 0.12);
+    }
+
+    :root[data-theme="light"] .timeline-item::before {
+      box-shadow: 0 0 14px rgba(56, 88, 214, 0.2);
     }
 
     :root[data-theme="light"] .timeline,
