@@ -2054,6 +2054,7 @@
     }
 
     :root[data-theme="light"] .work-card,
+    :root[data-theme="light"] .project-card,
     :root[data-theme="light"] .interest-card,
     :root[data-theme="light"] .contact-section {
       border-color: var(--line);
@@ -2074,6 +2075,10 @@
     :root[data-theme="light"] .view-switch button {
       border-color: #aab2c0;
       color: var(--ink);
+    }
+
+    :root[data-theme="light"] .view-switch button[aria-pressed="true"] {
+      color: #ffffff;
     }
 
     :root[data-theme="light"] .quick-message label {
