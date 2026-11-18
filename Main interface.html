@@ -12,6 +12,10 @@
   <meta property="og:url" content="https://nin-010808.github.io/portfolio/">
   <meta name="twitter:card" content="summary_large_image">
   <title>Emmanuel Albert A. Del Mundo | Portfolio</title>
+  <script>
+    const savedTheme = localStorage.getItem("portfolio-theme");
+    document.documentElement.dataset.theme = savedTheme === "light" ? "light" : "dark";
+  </script>
   <style>
     :root {
       --ink: #172033;
@@ -601,6 +605,28 @@
     .nav-button {
       border-color: #687051;
       border-radius: 4px;
+    }
+
+    .theme-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      min-height: 36px;
+      padding: 8px 10px;
+      border: 1px solid #687051;
+      border-radius: 4px;
+      color: var(--ink);
+      background: transparent;
+      font: 700 0.68rem Consolas, "Courier New", monospace;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .theme-toggle:hover,
+    .theme-toggle:focus-visible {
+      border-color: var(--blue);
+      color: var(--blue);
     }
 
     .nav-links a:not(.nav-button) {
@@ -1943,6 +1969,135 @@
         margin-top: 10px;
       }
     }
+
+    :root[data-theme="light"] {
+      color-scheme: light;
+      --ink: #172033;
+      --muted: #667085;
+      --paper: #f7f5ef;
+      --white: #ffffff;
+      --blue: #3858d6;
+      --cyan: #55c7d3;
+      --yellow: #f2c94c;
+      --line: #dfe3ea;
+    }
+
+    :root[data-theme="light"] body {
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 84% 8%, rgba(85, 199, 211, 0.13), transparent 19rem),
+        var(--paper);
+    }
+
+    :root[data-theme="light"] header {
+      background: rgba(247, 245, 239, 0.92);
+      border-bottom-color: var(--line);
+    }
+
+    :root[data-theme="light"] .nav-button,
+    :root[data-theme="light"] .theme-toggle {
+      border-color: #aab2c0;
+    }
+
+    :root[data-theme="light"] .hero-copy,
+    :root[data-theme="light"] .hero-note,
+    :root[data-theme="light"] .section-heading p,
+    :root[data-theme="light"] .project-info p,
+    :root[data-theme="light"] .about-copy p,
+    :root[data-theme="light"] .system-heading > p,
+    :root[data-theme="light"] .work-card p,
+    :root[data-theme="light"] .timeline-item p,
+    :root[data-theme="light"] .interest-card p,
+    :root[data-theme="light"] .interest-footer,
+    :root[data-theme="light"] .contact-grid p,
+    :root[data-theme="light"] .footer-row p,
+    :root[data-theme="light"] .capability p {
+      color: var(--muted);
+    }
+
+    :root[data-theme="light"] .portrait-wrap {
+      border-color: #d0d5df;
+      background: #e8edf2;
+    }
+
+    :root[data-theme="light"] .portrait {
+      border-color: #aab2c0;
+      background:
+        linear-gradient(145deg, transparent 48%, rgba(56, 88, 214, 0.08) 48.2% 48.7%, transparent 49%),
+        radial-gradient(ellipse at 68% 40%, #aeb8c7 0 1px, transparent 2px),
+        linear-gradient(150deg, #ffffff, #e8edf2 74%),
+        linear-gradient(110deg, transparent 38%, rgba(56, 88, 214, 0.13) 49%, transparent 60%);
+    }
+
+    :root[data-theme="light"] .about,
+    :root[data-theme="light"] .capabilities,
+    :root[data-theme="light"] footer {
+      color: var(--ink);
+      background: #eef1f5;
+      border-color: var(--line);
+    }
+
+    :root[data-theme="light"] .about-copy p,
+    :root[data-theme="light"] .skill,
+    :root[data-theme="light"] .footer-row p,
+    :root[data-theme="light"] .socials {
+      color: var(--muted);
+    }
+
+    :root[data-theme="light"] .skill,
+    :root[data-theme="light"] .capability {
+      border-color: var(--line);
+    }
+
+    :root[data-theme="light"] .capability {
+      background: rgba(255, 255, 255, 0.7);
+    }
+
+    :root[data-theme="light"] .work-card,
+    :root[data-theme="light"] .interest-card,
+    :root[data-theme="light"] .contact-section {
+      border-color: var(--line);
+      background: #ffffff;
+    }
+
+    :root[data-theme="light"] .timeline,
+    :root[data-theme="light"] .timeline-item,
+    :root[data-theme="light"] .contact-links a,
+    :root[data-theme="light"] .project-info {
+      border-color: var(--line);
+    }
+
+    :root[data-theme="light"] .contact-links a {
+      color: var(--ink);
+    }
+
+    :root[data-theme="light"] .view-switch button {
+      border-color: #aab2c0;
+      color: var(--ink);
+    }
+
+    :root[data-theme="light"] .quick-message label {
+      color: var(--muted);
+    }
+
+    :root[data-theme="light"] .quick-message input,
+    :root[data-theme="light"] .quick-message textarea {
+      border-color: #c5ccd8;
+      color: var(--ink);
+      background: #ffffff;
+    }
+
+    :root[data-theme="light"] .project-dialog,
+    :root[data-theme="light"] .photo-dialog {
+      border-color: #c5ccd8;
+      color: var(--ink);
+      background: #ffffff;
+    }
+
+    :root[data-theme="light"] .project-dialog .dialog-summary,
+    :root[data-theme="light"] .dialog-focus dd {
+      color: var(--muted);
+    }
   </style>
 </head>
 <body>
@@ -1955,6 +2110,10 @@
         <a href="#journey" data-section-link>Journey</a>
         <a href="#interests" data-section-link>Interests</a>
         <a class="nav-button" href="#contact" data-section-link>Contact</a>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light mode" aria-pressed="false">
+          <span id="theme-icon" aria-hidden="true">☾</span>
+          <span id="theme-label">Light</span>
+        </button>
       </div>
     </nav>
   </header>
@@ -2292,6 +2451,28 @@
       const subject = encodeURIComponent(`Portfolio message from ${name}`);
       const body = encodeURIComponent(`${message}\n\nFrom: ${name}`);
       window.location.href = `mailto:emmanueldelmundoedm08@gmail.com?subject=${subject}&body=${body}`;
+    });
+
+    const themeToggle = document.getElementById("theme-toggle");
+    const themeIcon = document.getElementById("theme-icon");
+    const themeLabel = document.getElementById("theme-label");
+    const themeColor = document.querySelector('meta[name="theme-color"]');
+
+    const updateThemeControl = (theme) => {
+      const isLight = theme === "light";
+      themeToggle.setAttribute("aria-pressed", String(isLight));
+      themeToggle.setAttribute("aria-label", isLight ? "Switch to dark mode" : "Switch to light mode");
+      themeIcon.textContent = isLight ? "☀" : "☾";
+      themeLabel.textContent = isLight ? "Dark" : "Light";
+      themeColor.setAttribute("content", isLight ? "#f7f5ef" : "#111412");
+    };
+
+    updateThemeControl(document.documentElement.dataset.theme);
+    themeToggle.addEventListener("click", () => {
+      const nextTheme = document.documentElement.dataset.theme === "light" ? "dark" : "light";
+      document.documentElement.dataset.theme = nextTheme;
+      localStorage.setItem("portfolio-theme", nextTheme);
+      updateThemeControl(nextTheme);
     });
   </script>
 </body>
