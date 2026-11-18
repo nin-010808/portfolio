@@ -500,6 +500,13 @@
       });
     });
 
+    const openProjectFromHash = () => {
+      const projectName = window.location.hash.slice(1);
+      if (projectDetails[projectName]) openProject(projectName);
+    };
+    openProjectFromHash();
+    window.addEventListener("hashchange", openProjectFromHash);
+
     projectDialog.querySelector(".dialog-close").addEventListener("click", () => projectDialog.close());
     projectDialog.addEventListener("click", (event) => {
       if (event.target === projectDialog) projectDialog.close();
