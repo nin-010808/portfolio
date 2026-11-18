@@ -1735,6 +1735,38 @@
         text-transform: uppercase;
       }
 
+      .quick-message {
+       display: grid;
+       gap: 8px;
+       margin-top: 18px;
+      }
+      .quick-message label {
+       color: #bfc3b5;
+       font: 0.66rem Consolas, "Courier New", monospace;
+       letter-spacing: 0.1em;
+       text-transform: uppercase;
+      }
+      .quick-message input,
+      .quick-message textarea {
+       width: 100%;
+       border: 1px solid #59604d;
+       border-radius: 2px;
+       color: #e8e7df;
+       background: #111412;
+       padding: 11px 12px;
+       font: inherit;
+       resize: vertical;
+      }
+      .quick-message input:focus,
+      .quick-message textarea:focus {
+       outline: 2px solid var(--cyan);
+       outline-offset: 2px;
+      }
+      .quick-message .button {
+       justify-self: start;
+       margin-top: 4px;
+      }
+
       body {
       background:
         radial-gradient(ellipse at 18% 18%, rgba(195, 209, 122, 0.11), transparent 38%),
