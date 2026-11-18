@@ -2284,6 +2284,15 @@
       javascriptSkill.setAttribute("aria-expanded", String(!expanded));
       javascriptInfo.hidden = expanded;
     });
+
+    document.getElementById("quick-message").addEventListener("submit", (event) => {
+      event.preventDefault();
+      const name = document.getElementById("message-name").value.trim();
+      const message = document.getElementById("message-body").value.trim();
+      const subject = encodeURIComponent(`Portfolio message from ${name}`);
+      const body = encodeURIComponent(`${message}\n\nFrom: ${name}`);
+      window.location.href = `mailto:emmanueldelmundoedm08@gmail.com?subject=${subject}&body=${body}`;
+    });
   </script>
 </body>
 </html>
