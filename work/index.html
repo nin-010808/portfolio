@@ -323,10 +323,15 @@
       </div>
       <h2 id="dialog-title"></h2>
       <p id="dialog-summary"></p>
-      <dl class="dialog-focus">
-        <dt>A little more</dt>
-        <dd id="dialog-focus"></dd>
-      </dl>
+      <div class="dialog-tabs" role="tablist" aria-label="Story sections">
+        <button class="dialog-tab" id="story-tab" type="button" role="tab" aria-selected="true" aria-controls="story-panel" data-dialog-tab="story">My story</button>
+        <button class="dialog-tab" id="role-tab" type="button" role="tab" aria-selected="false" aria-controls="role-panel" data-dialog-tab="role">My role</button>
+        <button class="dialog-tab" id="meaning-tab" type="button" role="tab" aria-selected="false" aria-controls="meaning-panel" data-dialog-tab="meaning">What it means</button>
+      </div>
+      <div class="dialog-panel" id="story-panel" role="tabpanel" aria-labelledby="story-tab" data-dialog-panel="story"></div>
+      <div class="dialog-panel" id="role-panel" role="tabpanel" aria-labelledby="role-tab" data-dialog-panel="role" hidden></div>
+      <div class="dialog-panel" id="meaning-panel" role="tabpanel" aria-labelledby="meaning-tab" data-dialog-panel="meaning" hidden></div>
+      <ul class="dialog-tags" id="dialog-tags" aria-label="Themes"></ul>
     </div>
   </dialog>
 
