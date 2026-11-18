@@ -246,11 +246,11 @@
 <body>
   <header>
     <nav class="container" aria-label="Main navigation">
-      <a class="logo" href="../Main%20interface.html#home">My Portfolio<span>.</span></a>
+      <a class="logo" href="../index.html#home">My Portfolio<span>.</span></a>
       <div class="nav-links">
         <a href="index.html" aria-current="page">My world</a>
         <a href="../capabilities/index.html">Interests</a>
-        <a href="../Main%20interface.html#home">Home</a>
+        <a href="../index.html#home">Home</a>
         <button class="nav-contact" type="button" data-open-contact aria-haspopup="dialog">Contact me</button>
       </div>
     </nav>
@@ -259,10 +259,20 @@
   <main class="container page">
     <p class="eyebrow">Personal highlights</p>
     <h1>Things I'm part of</h1>
-    <p class="intro">A few communities, experiences, and interests that are part of my life. Tap a card to read more.</p>
+    <p class="intro">A deeper look at the communities, experiences, and personal moments that help shape who I am. Filter my world or open a field note to explore it.</p>
+
+    <div class="world-controls">
+      <div class="world-filters" role="group" aria-label="Filter my world">
+        <button class="world-filter" type="button" data-filter="all" aria-pressed="true">All</button>
+        <button class="world-filter" type="button" data-filter="community" aria-pressed="false">Community</button>
+        <button class="world-filter" type="button" data-filter="experience" aria-pressed="false">Experience</button>
+        <button class="world-filter" type="button" data-filter="life" aria-pressed="false">Life</button>
+      </div>
+      <span class="world-count" id="world-count">4 stories</span>
+    </div>
 
     <div class="projects-grid">
-      <article class="project-card">
+      <article class="project-card" data-category="community">
         <span class="project-label">COMMUNITY</span>
         <div class="mockup" aria-hidden="true"></div>
         <div class="project-info">
@@ -272,7 +282,7 @@
           <button class="project-open" type="button" data-project="maba" aria-haspopup="dialog">Learn more <span aria-hidden="true">↗</span></button>
         </div>
       </article>
-      <article class="project-card">
+      <article class="project-card" data-category="community">
         <span class="project-label">COMMUNITY</span>
         <div class="mockup" aria-hidden="true"></div>
         <div class="project-info">
@@ -282,7 +292,7 @@
           <button class="project-open" type="button" data-project="orvion" aria-haspopup="dialog">Learn more <span aria-hidden="true">↗</span></button>
         </div>
       </article>
-      <article class="project-card">
+      <article class="project-card" data-category="experience">
         <span class="project-label">HACKATHON</span>
         <div class="mockup" aria-hidden="true"></div>
         <div class="project-info">
@@ -292,7 +302,7 @@
           <button class="project-open" type="button" data-project="conexus" aria-haspopup="dialog">Learn more <span aria-hidden="true">↗</span></button>
         </div>
       </article>
-      <article class="project-card">
+      <article class="project-card" data-category="life">
         <span class="project-label">FREE TIME</span>
         <div class="mockup" aria-hidden="true"></div>
         <div class="project-info">
