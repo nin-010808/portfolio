@@ -56,6 +56,42 @@
     h1 { margin: 16px 0; font-size: clamp(3rem, 8vw, 6.5rem); line-height: 0.9; letter-spacing: -0.07em; text-transform: uppercase; }
     .intro { max-width: 600px; margin: 0 0 42px; color: var(--muted); line-height: 1.7; }
     .projects-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .world-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin: 0 0 18px;
+    }
+    .world-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .world-filter {
+      min-height: 38px;
+      padding: 8px 12px;
+      border: 1px solid #59604d;
+      border-radius: 999px;
+      color: #cfd2c8;
+      background: transparent;
+      font: 700 0.68rem Consolas, "Courier New", monospace;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+    .world-filter:hover,
+    .world-filter[aria-pressed="true"] {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .world-count {
+      color: var(--muted);
+      font: 0.68rem Consolas, "Courier New", monospace;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .project-card[hidden] { display: none; }
     .project-card {
       min-height: 390px;
       position: relative;
@@ -147,9 +183,46 @@
     .dialog-close { width: 38px; height: 38px; border: 1px solid #59604d; border-radius: 3px; color: var(--ink); background: transparent; font-size: 1.2rem; cursor: pointer; }
     .project-dialog h2 { margin: 28px 0 14px; font-size: clamp(2rem, 8vw, 3.5rem); }
     .project-dialog p { margin: 0; color: #b7bab2; line-height: 1.75; }
-    .dialog-focus { margin: 28px 0 0; padding-top: 18px; border-top: 1px solid var(--line); }
-    .dialog-focus dt { margin-bottom: 9px; color: var(--accent); font: 0.68rem Consolas, monospace; letter-spacing: 0.12em; text-transform: uppercase; }
-    .dialog-focus dd { margin: 0; color: #d0d2cb; line-height: 1.65; }
+    .dialog-tabs {
+      display: flex;
+      gap: 8px;
+      margin: 28px 0 18px;
+      border-bottom: 1px solid var(--line);
+    }
+    .dialog-tab {
+      margin-bottom: -1px;
+      padding: 11px 4px;
+      border: 0;
+      border-bottom: 2px solid transparent;
+      color: var(--muted);
+      background: transparent;
+      font: 700 0.68rem Consolas, monospace;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+    .dialog-tab[aria-selected="true"] {
+      border-bottom-color: var(--accent);
+      color: var(--accent);
+    }
+    .dialog-panel { min-height: 150px; }
+    .dialog-panel[hidden] { display: none; }
+    .dialog-panel p + p { margin-top: 14px; }
+    .dialog-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 24px 0 0;
+      padding: 18px 0 0;
+      border-top: 1px solid var(--line);
+      list-style: none;
+    }
+    .dialog-tags li {
+      padding: 7px 10px;
+      border: 1px solid #4b5347;
+      color: #cfd2c8;
+      font: 0.68rem Consolas, monospace;
+    }
     .contact-details { display: grid; gap: 12px; margin-top: 24px; }
     .contact-details a { display: grid; gap: 6px; padding: 15px 16px; border: 1px solid #414840; color: var(--ink); }
     .contact-details a:hover { border-color: var(--accent); }
