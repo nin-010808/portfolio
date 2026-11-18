@@ -437,8 +437,64 @@
         if (!project) return;
         document.getElementById("dialog-title").textContent = project.title;
         document.getElementById("dialog-summary").textContent = project.summary;
-        document.getElementById("dialog-focus").textContent = project.focus;
+        ["story", "role", "meaning"].forEach((section) => {
+          const panel = document.querySelector(`[data-dialog-panel="${section}"]`);
+          panel.replaceChildren();
+          project[section].forEach((paragraph) => {
+            const element = document.createElement("p");
+            element.textContent = paragraph;
+            panel.appendChild(element);
+          });
+        });
+        document.getElementById("dialog-tags").replaceChildren(
+          ...project.tags.map((tag) => {
+            const item = document.createElement("li");
+            item.textContent = tag;
+            return item;
+          })
+        );
+        activateDialogTab("story");
         projectDialog.showModal();
+      });
+    });
+
+    const dialogTabs = [...document.querySelectorAll("[data-dialog-tab]")];
+    function activateDialogTab(name) {
+      dialogTabs.forEach((tab) => {
+        const active = tab.dataset.dialogTab === name;
+        tab.setAttribute("aria-selected", String(active));
+        tab.tabIndex = active ? 0 : -1;
+      });
+      document.querySelectorAll("[data-dialog-panel]").forEach((panel) => {
+        panel.hidden = panel.dataset.dialogPanel !== name;
+      });
+    }
+    dialogTabs.forEach((tab, index) => {
+      tab.addEventListener("click", () => activateDialogTab(tab.dataset.dialogTab));
+      tab.addEventListener("keydown", (event) => {
+        if (!["ArrowLeft", "ArrowRight"].includes(event.key)) return;
+        event.preventDefault();
+        const direction = event.key === "ArrowRight" ? 1 : -1;
+        const nextIndex = (index + direction + dialogTabs.length) % dialogTabs.length;
+        dialogTabs[nextIndex].focus();
+        activateDialogTab(dialogTabs[nextIndex].dataset.dialogTab);
+      });
+    });
+
+    const filterButtons = document.querySelectorAll("[data-filter]");
+    const cards = document.querySelectorAll("[data-category]");
+    const worldCount = document.getElementById("world-count");
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const selected = button.dataset.filter;
+        filterButtons.forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
+        let visibleCount = 0;
+        cards.forEach((card) => {
+          const visible = selected === "all" || card.dataset.category === selected;
+          card.hidden = !visible;
+          if (visible) visibleCount += 1;
+        });
+        worldCount.textContent = `${visibleCount} ${visibleCount === 1 ? "story" : "stories"}`;
       });
     });
 
