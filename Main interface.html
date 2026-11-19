@@ -2533,14 +2533,15 @@
 
     :root[data-theme="light"] body {
       background:
-        radial-gradient(ellipse at 9% 12%, rgba(242, 189, 82, 0.19), transparent 25%),
-        radial-gradient(ellipse at 91% 24%, rgba(233, 130, 145, 0.15), transparent 26%),
-        radial-gradient(ellipse at 14% 82%, rgba(56, 183, 163, 0.12), transparent 28%),
-        radial-gradient(ellipse at 84% 78%, rgba(142, 124, 218, 0.12), transparent 25%),
+        radial-gradient(ellipse at 9% 12%, rgba(242, 189, 82, 0.26), transparent 25%),
+        radial-gradient(ellipse at 91% 24%, rgba(233, 130, 145, 0.21), transparent 26%),
+        radial-gradient(ellipse at 14% 82%, rgba(56, 183, 163, 0.18), transparent 28%),
+        radial-gradient(ellipse at 84% 78%, rgba(142, 124, 218, 0.18), transparent 25%),
+        linear-gradient(125deg, #fff1d2 0%, #fff8ed 43%, #f2eeff 76%, #eaf8f1 100%),
         linear-gradient(rgba(91, 91, 207, 0.025) 1px, transparent 1px),
         linear-gradient(90deg, rgba(91, 91, 207, 0.025) 1px, transparent 1px),
         var(--paper);
-      background-size: auto, auto, auto, auto, 44px 44px, 44px 44px, auto;
+      background-size: auto, auto, auto, auto, auto, 44px 44px, 44px 44px, auto;
     }
 
     :root[data-theme="light"] header {
@@ -2564,29 +2565,48 @@
 
     :root[data-theme="light"] .work-card:nth-child(odd),
     :root[data-theme="light"] .featured-project:nth-child(1) {
-      background: linear-gradient(145deg, #fff0cf, #fffefa 82%);
+      background: linear-gradient(145deg, #ffe9b8, #fff8e6 72%);
     }
 
     :root[data-theme="light"] .work-card:nth-child(even),
     :root[data-theme="light"] .featured-project:nth-child(2) {
-      background: linear-gradient(145deg, #e8f3ff, #fffefa 82%);
+      background: linear-gradient(145deg, #dceaff, #f3f7ff 72%);
     }
 
     :root[data-theme="light"] .featured-project:nth-child(3) {
-      background: linear-gradient(145deg, #f8e9f1, #fffefa 82%);
+      background: linear-gradient(145deg, #f6e1ef, #fff3f7 72%);
     }
 
     :root[data-theme="light"] .interest-card:nth-child(1) {
-      background: linear-gradient(145deg, #fff0cf, #fffefa 86%);
+      background: linear-gradient(145deg, #ffe9b8, #fff8e6 76%);
     }
 
     :root[data-theme="light"] .interest-card:nth-child(2) {
-      background: linear-gradient(145deg, #e7f5ef, #fffefa 86%);
+      background: linear-gradient(145deg, #def2e8, #f3faf5 76%);
     }
 
     :root[data-theme="light"] .interest-card:nth-child(3) {
-      background: linear-gradient(145deg, #eeeaff, #fffefa 86%);
+      background: linear-gradient(145deg, #e8e3ff, #f6f3ff 76%);
     }
+
+    :root[data-theme="light"] .featured-project::before,
+    :root[data-theme="light"] .interest-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 22px;
+      width: 48px;
+      height: 5px;
+      border-radius: 0 0 5px 5px;
+      background: var(--card-accent, var(--blue));
+    }
+
+    :root[data-theme="light"] .featured-project:nth-child(1),
+    :root[data-theme="light"] .interest-card:nth-child(1) { --card-accent: #e8aa36; }
+    :root[data-theme="light"] .featured-project:nth-child(2),
+    :root[data-theme="light"] .interest-card:nth-child(2) { --card-accent: #5584d9; }
+    :root[data-theme="light"] .featured-project:nth-child(3),
+    :root[data-theme="light"] .interest-card:nth-child(3) { --card-accent: #c26eaa; }
 
     :root[data-theme="light"] .project-preview {
       border-radius: 12px;
