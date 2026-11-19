@@ -458,9 +458,6 @@
         story: [
           "Lei is someone who inspires me. I added a few photos you shared to this part of my world."
         ],
-        role: [
-          "This gallery brings together the five photos you shared."
-        ],
         meaning: [
           "Having someone who inspires me is one of the things that keeps me motivated."
         ],
@@ -491,10 +488,11 @@
       if (!project) return;
       document.getElementById("dialog-title").textContent = project.title;
       document.getElementById("dialog-summary").textContent = project.summary;
+      document.getElementById("role-tab").hidden = !project.role;
       ["story", "role", "meaning"].forEach((section) => {
         const panel = document.querySelector(`[data-dialog-panel="${section}"]`);
         panel.replaceChildren();
-        project[section].forEach((paragraph) => {
+        (project[section] || []).forEach((paragraph) => {
           const element = document.createElement("p");
           element.textContent = paragraph;
           panel.appendChild(element);
@@ -532,9 +530,12 @@
         if (!["ArrowLeft", "ArrowRight"].includes(event.key)) return;
         event.preventDefault();
         const direction = event.key === "ArrowRight" ? 1 : -1;
-        const nextIndex = (index + direction + dialogTabs.length) % dialogTabs.length;
-        dialogTabs[nextIndex].focus();
-        activateDialogTab(dialogTabs[nextIndex].dataset.dialogTab);
+        const availableTabs = dialogTabs.filter((item) => !item.hidden);
+        const currentIndex = availableTabs.indexOf(tab);
+        const nextIndex = (currentIndex + direction + availableTabs.length) % availableTabs.length;
+        const nextTab = availableTabs[nextIndex];
+        nextTab.focus();
+        activateDialogTab(nextTab.dataset.dialogTab);
       });
     });
 
