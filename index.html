@@ -2771,6 +2771,27 @@
         linear-gradient(110deg, transparent 38%, rgba(142, 219, 210, 0.15) 49%, transparent 60%);
     }
 
+    :root:not([data-theme="light"]) .portrait::before {
+      background:
+        linear-gradient(145deg, transparent 49.5%, rgba(183, 165, 255, 0.48) 50%, transparent 50.5%),
+        linear-gradient(90deg, transparent 49.5%, rgba(242, 238, 251, 0.12) 50%, transparent 50.5%),
+        linear-gradient(0deg, transparent 49.5%, rgba(242, 238, 251, 0.12) 50%, transparent 50.5%);
+    }
+
+    :root:not([data-theme="light"]) .portrait::after {
+      text-shadow: 0 0 24px rgba(183, 165, 255, 0.22);
+    }
+
+    :root:not([data-theme="light"]) .portrait-hint {
+      color: #c1b6df;
+    }
+
+    :root:not([data-theme="light"]) .portrait:hover,
+    :root:not([data-theme="light"]) .portrait:focus-visible {
+      border-color: rgba(183, 165, 255, 0.8);
+      box-shadow: 0 0 32px rgba(183, 165, 255, 0.16);
+    }
+
     :root:not([data-theme="light"]) .shape.yellow {
       display: block;
       z-index: 4;
@@ -2832,6 +2853,16 @@
     :root:not([data-theme="light"]) .featured-project:nth-child(3),
     :root:not([data-theme="light"]) .interest-card:nth-child(3) {
       background: linear-gradient(145deg, rgba(239, 140, 162, 0.1), rgba(34, 31, 49, 0.96) 72%);
+    }
+
+    :root:not([data-theme="light"]) .about,
+    :root:not([data-theme="light"]) .capabilities,
+    :root:not([data-theme="light"]) footer {
+      color: var(--ink);
+      background:
+        radial-gradient(ellipse at 88% 12%, rgba(142, 219, 210, 0.08), transparent 42%),
+        #1d1a2a;
+      border-color: var(--line);
     }
 
     :root:not([data-theme="light"]) .featured-project::before,
