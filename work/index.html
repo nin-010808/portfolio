@@ -538,6 +538,14 @@
       border-radius: 12px;
       background: linear-gradient(145deg, #29243a, #1d1a2a);
     }
+    :root:not([data-theme="light"]) .mockup {
+      border-color: #5b5274;
+      background:
+        linear-gradient(90deg, #29243a 0 22%, transparent 22%),
+        linear-gradient(0deg, transparent 0 73%, #3a354b 73% 74%, transparent 74%),
+        linear-gradient(135deg, var(--accent) 0 1px, transparent 1px 18px),
+        #1d1a2a;
+    }
     :root:not([data-theme="light"]) .lei-photo-gallery {
       border: 1px solid rgba(183, 165, 255, 0.22);
       border-radius: 12px;
