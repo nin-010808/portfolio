@@ -2644,6 +2644,9 @@
               <span>PDF</span>
               <span>Blockchain</span>
             </div>
+            <button class="project-open" type="button" data-case-study="campuscred" aria-haspopup="dialog">
+              Read project notes <span aria-hidden="true">↗</span>
+            </button>
           </div>
         </article>
       </div>
@@ -2744,7 +2747,7 @@
     <div class="dialog-content">
       <div class="dialog-topline">
         <span id="case-study-label">FIELD NOTE</span>
-        <button class="dialog-close" type="button" id="case-study-close" aria-label="Close field note">×</button>
+        <button class="dialog-close" type="button" id="case-study-close" aria-label="Close notes">×</button>
       </div>
       <h2 id="case-study-title"></h2>
       <p class="dialog-summary" id="case-study-summary"></p>
@@ -2815,15 +2818,26 @@
         focus: "Taking part in the hackathon; specific role and project outcomes are not listed here."
       },
       portfolio: {
+        label: "PROJECT NOTES",
         title: "Portfolio system",
         summary: "An evolving portfolio for bringing my background, interests, and learning into one place.",
+        focusLabel: "Project focus",
         focus: "Practicing HTML, CSS, JavaScript, responsive design, and interface design."
+      },
+      campuscred: {
+        label: "PROJECT NOTES",
+        title: "CampusCred",
+        summary: "CampusCred is a concept for verifying Batangas State University diplomas, transcripts, and certificates against blockchain records. It is a project concept, not a live verification service.",
+        focusLabel: "Project focus",
+        focus: "Credential verification for diplomas, transcripts, and certificates, using blockchain records as the verification reference."
       }
     };
 
     const caseStudyDialog = document.getElementById("case-study-dialog");
+    const caseStudyLabel = document.getElementById("case-study-label");
     const caseStudyTitle = document.getElementById("case-study-title");
     const caseStudySummary = document.getElementById("case-study-summary");
+    const caseStudyFocusLabel = document.getElementById("case-study-focus-label");
     const caseStudyFocus = document.getElementById("case-study-focus");
     document.querySelectorAll("[data-case-study]").forEach((button) => {
       button.addEventListener("click", () => {
@@ -2831,8 +2845,10 @@
         if (!study) {
           throw new Error(`Unknown case study: ${button.dataset.caseStudy}`);
         }
+        caseStudyLabel.textContent = study.label || "FIELD NOTE";
         caseStudyTitle.textContent = study.title;
         caseStudySummary.textContent = study.summary;
+        caseStudyFocusLabel.textContent = study.focusLabel || "Involvement";
         caseStudyFocus.textContent = study.focus;
         caseStudyDialog.showModal();
       });
