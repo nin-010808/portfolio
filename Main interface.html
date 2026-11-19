@@ -2651,15 +2651,14 @@
       text-underline-offset: 0.12em;
     }
 
-    :root[data-theme="light"] .hero h1 em::after {
-      content: "✳";
+    :root[data-theme="light"] .hero-sparkle {
       display: inline-block;
+      width: 0.28em;
+      height: 0.28em;
       margin-left: 0.16em;
-      color: #e98291;
-      font-size: 0.28em;
-      line-height: 1;
+      background: #e98291;
+      clip-path: polygon(50% 0, 62% 36%, 100% 50%, 62% 64%, 50% 100%, 38% 64%, 0 50%, 38% 36%);
       vertical-align: top;
-      text-decoration: none;
       transform: rotate(12deg);
     }
 
@@ -2740,7 +2739,7 @@
     <section class="hero container" id="home">
       <div>
         <p class="eyebrow">BSIT Student · Batangas State University - TNEU</p>
-        <h1>A life in <em>progress.</em></h1>
+        <h1>A life in <em>progress.<span class="hero-sparkle" aria-hidden="true"></span></em></h1>
         <p class="hero-copy">
           I'm Emmanuel Albert A. Del Mundo, a BSIT student and self-study person. This
           little corner is about the people, interests, and experiences that matter to me.
