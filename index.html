@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Portfolio of Emmanuel Albert A. Del Mundo, BSIT student at Batangas State University - TNEU">
-  <meta name="theme-color" content="#f7f5ef">
+  <meta name="theme-color" content="#171522">
   <meta property="og:title" content="Emmanuel Albert A. Del Mundo | Portfolio">
   <meta property="og:description" content="A portfolio about learning, community, interests, and life in progress.">
   <meta property="og:type" content="website">
@@ -557,23 +557,26 @@
     }
 
     :root {
-      --ink: #e8e7df;
-      --muted: #9c9e97;
-      --paper: #111412;
-      --white: #1b201d;
-      --blue: #c3d17a;
-      --cyan: #c3d17a;
-      --yellow: #e2a35c;
-      --line: #343a35;
+      --ink: #f2eefb;
+      --muted: #b9b2c8;
+      --paper: #171522;
+      --white: #221f31;
+      --blue: #b7a5ff;
+      --cyan: #8edbd2;
+      --yellow: #f2c983;
+      --line: #3a354b;
     }
 
     body {
       font-family: "Segoe UI", Arial, sans-serif;
       background:
-        linear-gradient(rgba(195, 209, 122, 0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(195, 209, 122, 0.025) 1px, transparent 1px),
+        radial-gradient(ellipse at 12% 12%, rgba(183, 165, 255, 0.16), transparent 34%),
+        radial-gradient(ellipse at 88% 28%, rgba(142, 219, 210, 0.12), transparent 31%),
+        radial-gradient(ellipse at 56% 90%, rgba(239, 140, 162, 0.08), transparent 35%),
+        linear-gradient(rgba(183, 165, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(183, 165, 255, 0.025) 1px, transparent 1px),
         var(--paper);
-      background-size: 44px 44px;
+      background-size: auto, auto, auto, 44px 44px, 44px 44px, auto;
     }
 
     .container {
@@ -581,7 +584,7 @@
     }
 
     header {
-      background: rgba(17, 20, 18, 0.9);
+      background: rgba(23, 21, 34, 0.9);
       border-bottom-color: var(--line);
     }
 
@@ -2714,6 +2717,159 @@
       opacity: 0.72;
       pointer-events: none;
     }
+
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+    }
+
+    :root:not([data-theme="light"]) .theme-toggle,
+    :root:not([data-theme="light"]) .nav-button {
+      border-color: var(--line);
+      border-radius: 999px;
+      background: rgba(34, 31, 49, 0.72);
+    }
+
+    :root:not([data-theme="light"]) .hero h1 em {
+      text-decoration: underline wavy var(--yellow);
+      text-decoration-thickness: 0.065em;
+      text-underline-offset: 0.12em;
+    }
+
+    :root:not([data-theme="light"]) .hero-sparkle {
+      display: inline-block;
+      width: 0.28em;
+      height: 0.28em;
+      margin-left: 0.16em;
+      background: #ef8ca2;
+      clip-path: polygon(50% 0, 62% 36%, 100% 50%, 62% 64%, 50% 100%, 38% 64%, 0 50%, 38% 36%);
+      vertical-align: top;
+      transform: rotate(12deg);
+    }
+
+    :root:not([data-theme="light"]) .portrait-wrap {
+      border-color: var(--line);
+      border-radius: 24px;
+      background: linear-gradient(145deg, #29243a, #1a1827);
+    }
+
+    :root:not([data-theme="light"]) .portrait-wrap::before {
+      border-color: rgba(183, 165, 255, 0.28);
+      box-shadow: 0 0 24px rgba(183, 165, 255, 0.12), inset 0 0 20px rgba(142, 219, 210, 0.06);
+    }
+
+    :root:not([data-theme="light"]) .portrait-wrap::after {
+      border-color: rgba(239, 140, 162, 0.32);
+    }
+
+    :root:not([data-theme="light"]) .portrait {
+      border-color: #5b5274;
+      border-radius: 16px;
+      background:
+        linear-gradient(145deg, transparent 48%, rgba(183, 165, 255, 0.1) 48.2% 48.7%, transparent 49%),
+        radial-gradient(ellipse at 68% 40%, #5b5368 0 1px, transparent 2px),
+        linear-gradient(150deg, #302a43, #171522 74%),
+        linear-gradient(110deg, transparent 38%, rgba(142, 219, 210, 0.15) 49%, transparent 60%);
+    }
+
+    :root:not([data-theme="light"]) .shape.yellow {
+      display: block;
+      z-index: 4;
+      top: 14px;
+      right: 24px;
+      width: 52px;
+      height: 52px;
+      border: 2px solid var(--yellow);
+      border-radius: 50%;
+      background: rgba(34, 31, 49, 0.84);
+      box-shadow: 0 0 0 6px rgba(242, 201, 131, 0.12);
+      pointer-events: none;
+    }
+
+    :root:not([data-theme="light"]) .shape.yellow::after {
+      content: "";
+      position: absolute;
+      inset: 11px;
+      border: 2px dashed #ef8ca2;
+      border-radius: 50%;
+    }
+
+    :root:not([data-theme="light"]) .shape.blue {
+      z-index: 4;
+      left: 8px;
+      bottom: 30px;
+      width: 40px;
+      height: 40px;
+      border: 2px dashed var(--cyan);
+      border-radius: 50%;
+      background: rgba(34, 31, 49, 0.86);
+      transform: rotate(-12deg);
+    }
+
+    :root:not([data-theme="light"]) .work-card,
+    :root:not([data-theme="light"]) .featured-project,
+    :root:not([data-theme="light"]) .interest-card,
+    :root:not([data-theme="light"]) .contact-section,
+    :root:not([data-theme="light"]) .project-card,
+    :root:not([data-theme="light"]) .capability {
+      border-color: var(--line);
+      border-radius: 18px;
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.2);
+    }
+
+    :root:not([data-theme="light"]) .work-card,
+    :root:not([data-theme="light"]) .featured-project,
+    :root:not([data-theme="light"]) .interest-card,
+    :root:not([data-theme="light"]) .project-card,
+    :root:not([data-theme="light"]) .capability {
+      background: linear-gradient(145deg, rgba(183, 165, 255, 0.09), rgba(34, 31, 49, 0.96) 72%);
+    }
+
+    :root:not([data-theme="light"]) .featured-project:nth-child(2),
+    :root:not([data-theme="light"]) .interest-card:nth-child(2) {
+      background: linear-gradient(145deg, rgba(142, 219, 210, 0.1), rgba(34, 31, 49, 0.96) 72%);
+    }
+
+    :root:not([data-theme="light"]) .featured-project:nth-child(3),
+    :root:not([data-theme="light"]) .interest-card:nth-child(3) {
+      background: linear-gradient(145deg, rgba(239, 140, 162, 0.1), rgba(34, 31, 49, 0.96) 72%);
+    }
+
+    :root:not([data-theme="light"]) .featured-project::before,
+    :root:not([data-theme="light"]) .interest-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 22px;
+      width: 48px;
+      height: 5px;
+      border-radius: 0 0 5px 5px;
+      background: var(--card-accent, var(--blue));
+    }
+
+    :root:not([data-theme="light"]) .featured-project:nth-child(1),
+    :root:not([data-theme="light"]) .interest-card:nth-child(1) { --card-accent: #f2c983; }
+    :root:not([data-theme="light"]) .featured-project:nth-child(2),
+    :root:not([data-theme="light"]) .interest-card:nth-child(2) { --card-accent: #8edbd2; }
+    :root:not([data-theme="light"]) .featured-project:nth-child(3),
+    :root:not([data-theme="light"]) .interest-card:nth-child(3) { --card-accent: #ef8ca2; }
+
+    :root:not([data-theme="light"]) .system-section {
+      border-top: 0;
+    }
+
+    :root:not([data-theme="light"]) .system-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 16px;
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='120'%20height='16'%20viewBox='0%200%20120%2016'%3E%3Cpath%20d='M1%208%20C10%202%2020%2014%2030%208%20S50%202%2060%208%20S80%2014%2090%208%20S110%202%20119%208'%20fill='none'%20stroke='%23b7a5ff'%20stroke-width='2'%20stroke-linecap='round'/%3E%3Cpath%20d='M1%2012%20C12%206%2020%2016%2032%2012%20S52%206%2062%2012%20S82%2016%2092%2012%20S110%206%20119%2012'%20fill='none'%20stroke='%238edbd2'%20stroke-width='1'%20stroke-linecap='round'%20stroke-opacity='.65'/%3E%3C/svg%3E");
+      background-repeat: repeat-x;
+      background-size: 120px 16px;
+      opacity: 0.6;
+      pointer-events: none;
+    }
   </style>
 </head>
 <body>
@@ -3187,7 +3343,7 @@
       themeToggle.setAttribute("aria-label", isLight ? "Switch to dark mode" : "Switch to light mode");
       themeIcon.textContent = isLight ? "☀" : "☾";
       themeLabel.textContent = isLight ? "Dark" : "Light";
-      themeColor.setAttribute("content", isLight ? "#f7f5ef" : "#111412");
+      themeColor.setAttribute("content", isLight ? "#fff8ed" : "#171522");
     };
 
     updateThemeControl(document.documentElement.dataset.theme);
