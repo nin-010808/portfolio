@@ -347,6 +347,12 @@
     :root[data-theme="light"] .world-filter:hover,
     :root[data-theme="light"] .world-filter[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
     :root[data-theme="light"] .project-card { border-color: var(--line); background: rgba(255, 255, 255, 0.82); }
+    @media (hover: hover) {
+      :root[data-theme="light"] .project-card:hover {
+        border-color: rgba(56, 88, 214, 0.42);
+        box-shadow: 0 18px 42px rgba(23, 32, 51, 0.1);
+      }
+    }
     :root[data-theme="light"] .project-label,
     :root[data-theme="light"] .project-kind { color: var(--accent); }
     :root[data-theme="light"] .project-info { border-color: var(--line); }
