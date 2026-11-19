@@ -151,21 +151,24 @@
         #1d1a17;
       background-size: auto, auto, 19px 19px, auto;
     }
-    .inspiration-placeholder {
+    .lei-photo-gallery {
       display: grid;
-      place-items: center;
-      border-style: dashed;
-      background:
-        radial-gradient(circle at 50% 45%, rgba(195, 209, 122, 0.16), transparent 62%),
-        #171b18;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-rows: repeat(2, minmax(0, 1fr));
+      gap: 7px;
+      padding: 8px;
+      background: #171b18;
     }
-    .inspiration-placeholder span {
-      padding: 12px 16px;
+    .lei-photo-gallery img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 0;
       border: 1px solid #59604d;
-      color: #cfd2c8;
-      background: rgba(17, 20, 18, 0.88);
-      font: 0.68rem Consolas, "Courier New", monospace;
-      letter-spacing: 0.12em;
+      object-fit: cover;
+    }
+    .lei-photo-gallery img:last-child {
+      grid-column: 2;
     }
     .project-info { position: relative; z-index: 1; padding-top: 16px; border-top: 1px solid #414840; }
     .project-kind { font-size: 0.66rem; }
@@ -336,7 +339,13 @@
       </article>
       <article class="project-card" data-category="life">
         <span class="project-label">MY INSPIRATION</span>
-        <div class="mockup inspiration-placeholder" aria-hidden="true"><span>PHOTOS COMING SOON</span></div>
+        <div class="mockup lei-photo-gallery" role="group" aria-label="Photos of Lei">
+          <img src="../images/lei/lei-01.jpg" alt="Close-up portrait of Lei" loading="lazy" decoding="async">
+          <img src="../images/lei/lei-02.jpg" alt="Lei shown on a digital camera screen" loading="lazy" decoding="async">
+          <img src="../images/lei/lei-03.jpg" alt="Lei working at a classroom desk" loading="lazy" decoding="async">
+          <img src="../images/lei/lei-04.jpg" alt="Lei pictured with a friend" loading="lazy" decoding="async">
+          <img src="../images/lei/lei-05.jpg" alt="Close-up low-light portrait of Lei" loading="lazy" decoding="async">
+        </div>
         <div class="project-info">
           <span class="project-kind">LEI</span>
           <h2>My inspiration</h2>
@@ -447,10 +456,10 @@
         title: "Lei",
         summary: "Lei is someone who inspires me and is part of my world.",
         story: [
-          "Lei is someone who inspires me. This space is ready for the photos you share."
+          "Lei is someone who inspires me. I added a few photos you shared to this part of my world."
         ],
         role: [
-          "I’ll add the photos here when you send them."
+          "This gallery brings together the five photos you shared."
         ],
         meaning: [
           "Having someone who inspires me is one of the things that keeps me motivated."
