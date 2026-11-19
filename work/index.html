@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Personal highlights and interests of Emmanuel Albert A. Del Mundo">
-  <meta name="theme-color" content="#111412">
+  <meta name="theme-color" content="#171522">
   <meta property="og:title" content="My World | Emmanuel Albert A. Del Mundo">
   <meta property="og:description" content="Explore Emmanuel's communities, experiences, interests, and personal story.">
   <meta property="og:type" content="website">
@@ -466,6 +466,81 @@
     :root[data-theme="light"] .contact-dialog-close { border-color: #aab2c0; color: var(--ink); }
     :root[data-theme="light"] .dialog-tags li,
     :root[data-theme="light"] .contact-details a { border-color: var(--line); color: var(--muted); }
+
+    :root:not([data-theme="light"]) body {
+      background:
+        radial-gradient(ellipse at 12% 12%, rgba(183, 165, 255, 0.16), transparent 34%),
+        radial-gradient(ellipse at 88% 28%, rgba(142, 219, 210, 0.12), transparent 31%),
+        radial-gradient(ellipse at 56% 90%, rgba(239, 140, 162, 0.08), transparent 35%),
+        linear-gradient(rgba(183, 165, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(183, 165, 255, 0.025) 1px, transparent 1px),
+        var(--paper);
+      background-size: auto, auto, auto, 44px 44px, 44px 44px, auto;
+    }
+    :root:not([data-theme="light"]) header {
+      border-color: var(--line);
+      background: rgba(23, 21, 34, 0.9);
+    }
+    :root:not([data-theme="light"]) .nav-contact,
+    :root:not([data-theme="light"]) .nav-theme,
+    :root:not([data-theme="light"]) .world-filter {
+      border-color: var(--line);
+      border-radius: 999px;
+      background: rgba(34, 31, 49, 0.72);
+    }
+    :root:not([data-theme="light"]) .project-card {
+      border-color: var(--line);
+      border-radius: 18px;
+      background: linear-gradient(145deg, rgba(183, 165, 255, 0.1), rgba(34, 31, 49, 0.96) 72%);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.2);
+    }
+    :root:not([data-theme="light"]) .project-card:nth-child(5n + 2) {
+      background: linear-gradient(145deg, rgba(142, 219, 210, 0.1), rgba(34, 31, 49, 0.96) 72%);
+    }
+    :root:not([data-theme="light"]) .project-card:nth-child(5n + 3) {
+      background: linear-gradient(145deg, rgba(183, 165, 255, 0.12), rgba(34, 31, 49, 0.96) 72%);
+    }
+    :root:not([data-theme="light"]) .project-card:nth-child(5n + 4) {
+      background: linear-gradient(145deg, rgba(142, 219, 210, 0.08), rgba(34, 31, 49, 0.96) 72%);
+    }
+    :root:not([data-theme="light"]) .project-card:nth-child(5n + 5) {
+      background: linear-gradient(145deg, rgba(239, 140, 162, 0.1), rgba(34, 31, 49, 0.96) 72%);
+    }
+    :root:not([data-theme="light"]) .project-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 22px;
+      width: 48px;
+      height: 5px;
+      border-radius: 0 0 5px 5px;
+      background: var(--card-accent, var(--accent));
+    }
+    :root:not([data-theme="light"]) .project-card:nth-child(5n + 1) { --card-accent: #f2c983; }
+    :root:not([data-theme="light"]) .project-card:nth-child(5n + 2) { --card-accent: #8edbd2; }
+    :root:not([data-theme="light"]) .project-card:nth-child(5n + 3) { --card-accent: #b7a5ff; }
+    :root:not([data-theme="light"]) .project-card:nth-child(5n + 4) { --card-accent: #8edbd2; }
+    :root:not([data-theme="light"]) .project-card:nth-child(5n + 5) { --card-accent: #ef8ca2; }
+    :root:not([data-theme="light"]) .project-label,
+    :root:not([data-theme="light"]) .project-kind { color: var(--accent); }
+    :root:not([data-theme="light"]) .project-info,
+    :root:not([data-theme="light"]) .project-info p,
+    :root:not([data-theme="light"]) .intro,
+    :root:not([data-theme="light"]) .world-count,
+    :root:not([data-theme="light"]) footer { color: var(--muted); border-color: var(--line); }
+    :root:not([data-theme="light"]) .logo-preview {
+      border-radius: 12px;
+      background: linear-gradient(145deg, #29243a, #1d1a2a);
+    }
+    :root:not([data-theme="light"]) .lei-photo-gallery {
+      border: 1px solid rgba(183, 165, 255, 0.22);
+      border-radius: 12px;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.24);
+    }
+    :root:not([data-theme="light"]) .project-card:hover {
+      border-color: rgba(183, 165, 255, 0.58);
+      box-shadow: 0 20px 42px rgba(0, 0, 0, 0.3);
+    }
   </style>
 </head>
 <body>
@@ -796,7 +871,7 @@
       themeToggle.setAttribute("aria-label", isLight ? "Switch to dark mode" : "Switch to light mode");
       themeToggle.title = isLight ? "Switch to dark mode" : "Switch to light mode";
       themeIcon.textContent = isLight ? "☀" : "☾";
-      themeColor.setAttribute("content", isLight ? "#f7f5ef" : "#111412");
+      themeColor.setAttribute("content", isLight ? "#fff8ed" : "#171522");
     };
     updateTheme(document.documentElement.dataset.theme);
     themeToggle.addEventListener("click", () => {
