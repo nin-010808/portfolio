@@ -126,7 +126,21 @@
       padding: 22px;
       border: 1px solid #3c433d;
       background: var(--panel);
+      transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
     }
+    @media (hover: hover) {
+      .project-card:hover {
+        transform: translateY(-4px);
+        border-color: var(--accent);
+        box-shadow: 0 16px 38px rgba(0, 0, 0, 0.2);
+      }
+      .project-card:hover .logo-preview img,
+      .project-card:hover .free-time-visual img {
+        transform: scale(1.035);
+      }
+    }
+    .logo-preview img,
+    .free-time-visual img { transition: transform 280ms ease; }
     .project-card.logo-card { min-height: 450px; }
     .project-label { position: absolute; top: 24px; left: 24px; color: #aeb39d; font-size: 0.64rem; }
     .mockup {
@@ -280,6 +294,19 @@
     footer { padding: 30px 0; border-top: 1px solid var(--line); color: #888d84; font-size: 0.82rem; }
     .footer-row { display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
     .footer-row a:hover { color: var(--accent); }
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 600ms ease, transform 600ms cubic-bezier(0.2, 0.65, 0.3, 1);
+    }
+    .scroll-reveal.is-revealed { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) {
+      .project-card { transition: none; }
+      .project-card:hover { transform: none; }
+      .logo-preview img,
+      .free-time-visual img,
+      .scroll-reveal { opacity: 1; transform: none; }
+    }
     @media (max-width: 700px) {
       .container { width: min(100% - 28px, 1180px); }
       .page { padding-top: 58px; }
@@ -690,6 +717,20 @@
         updateTheme(localStorage.getItem("portfolio-theme"));
       }
     });
+
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches && "IntersectionObserver" in window) {
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-revealed");
+          observer.unobserve(entry.target);
+        });
+      }, { threshold: 0.08, rootMargin: "0px 0px -32px 0px" });
+      document.querySelectorAll(".world-controls, .projects-grid").forEach((section) => {
+        section.classList.add("scroll-reveal");
+        revealObserver.observe(section);
+      });
+    }
   </script>
 </body>
 </html>
