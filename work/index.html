@@ -127,29 +127,18 @@
       transform: rotate(-3deg);
       box-shadow: 0 22px 40px rgba(0, 0, 0, 0.28);
     }
-    .project-card:nth-child(2) .mockup {
-      background:
-        linear-gradient(90deg, #342c20 0 22%, transparent 22%),
-        linear-gradient(0deg, transparent 0 73%, #53442e 73% 74%, transparent 74%),
-        linear-gradient(135deg, #e2a35c 0 1px, transparent 1px 18px),
-        #1d1b17;
-      background-size: auto, auto, 19px 19px, auto;
+    .logo-preview {
+      display: grid;
+      place-items: center;
+      transform: none;
+      background: #111412;
     }
-    .project-card:nth-child(3) .mockup {
-      background:
-        linear-gradient(90deg, #242a25 0 22%, transparent 22%),
-        linear-gradient(0deg, transparent 0 73%, #353d34 73% 74%, transparent 74%),
-        linear-gradient(135deg, #8292a1 0 1px, transparent 1px 18px),
-        #171b18;
-      background-size: auto, auto, 19px 19px, auto;
-    }
-    .project-card:nth-child(4) .mockup {
-      background:
-        linear-gradient(90deg, #302920 0 22%, transparent 22%),
-        linear-gradient(0deg, transparent 0 73%, #4a3e30 73% 74%, transparent 74%),
-        linear-gradient(135deg, #c77f61 0 1px, transparent 1px 18px),
-        #1d1a17;
-      background-size: auto, auto, 19px 19px, auto;
+    .logo-preview img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      padding: 8px;
+      object-fit: contain;
     }
     .lei-photo-gallery {
       display: grid;
@@ -305,7 +294,9 @@
     <div class="projects-grid">
       <article class="project-card" data-category="community">
         <span class="project-label">COMMUNITY</span>
-        <div class="mockup" aria-hidden="true"></div>
+        <div class="mockup logo-preview" aria-hidden="true">
+          <img src="../images/logos/maba.jpg" alt="" loading="lazy" decoding="async">
+        </div>
         <div class="project-info">
           <span class="project-kind">KABATAANG MABA</span>
           <h2>Helping our community</h2>
@@ -315,7 +306,9 @@
       </article>
       <article class="project-card" data-category="community">
         <span class="project-label">COMMUNITY</span>
-        <div class="mockup" aria-hidden="true"></div>
+        <div class="mockup logo-preview" aria-hidden="true">
+          <img src="../images/logos/orvion.jpg" alt="" loading="lazy" decoding="async">
+        </div>
         <div class="project-info">
           <span class="project-kind">ORVION</span>
           <h2>A community I'm part of</h2>
@@ -325,7 +318,9 @@
       </article>
       <article class="project-card" data-category="experience">
         <span class="project-label">HACKATHON</span>
-        <div class="mockup" aria-hidden="true"></div>
+        <div class="mockup logo-preview" aria-hidden="true">
+          <img src="../images/logos/conexus.jpg" alt="" loading="lazy" decoding="async">
+        </div>
         <div class="project-info">
           <span class="project-kind">CONEXUS</span>
           <h2>Hackathon experience</h2>
