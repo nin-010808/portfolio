@@ -1557,23 +1557,43 @@
         gap: 14px;
       }
 
-      .featured-project {
+      .project-showcase-grid {
         display: grid;
-        grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-        align-items: center;
-        gap: clamp(24px, 5vw, 58px);
-        padding: clamp(20px, 4vw, 40px);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .featured-project {
+        display: flex;
+        min-width: 0;
+        flex-direction: column;
+        gap: 20px;
+        padding: 18px;
         overflow: hidden;
         border: 1px solid #3c433d;
         background:
           radial-gradient(ellipse at 12% 18%, rgba(195, 209, 122, 0.08), transparent 42%),
           #1b201d;
+        color: var(--ink);
+        text-decoration: none;
+        transition: border-color 220ms ease, transform 220ms ease, box-shadow 220ms ease;
+      }
+
+      .featured-project:hover {
+        transform: translateY(-4px);
+        border-color: rgba(195, 209, 122, 0.55);
+        box-shadow: 0 16px 38px rgba(0, 0, 0, 0.2);
+      }
+
+      .featured-project:focus-visible {
+        outline: 2px solid var(--blue);
+        outline-offset: 4px;
       }
 
       .project-preview {
         position: relative;
         display: grid;
-        min-height: 310px;
+        min-height: 250px;
         place-items: center;
         overflow: hidden;
         border: 1px solid #485044;
@@ -1594,7 +1614,7 @@
 
       .project-browser {
         width: 88%;
-        min-height: 220px;
+        min-height: 205px;
         overflow: hidden;
         border: 1px solid #59604d;
         background: #111412;
@@ -1646,7 +1666,7 @@
 
       .project-browser-content {
         display: flex;
-        min-height: 185px;
+        min-height: 169px;
         flex-direction: column;
         justify-content: center;
         padding: 24px clamp(18px, 4vw, 36px);
@@ -1691,15 +1711,38 @@
         width: 54%;
       }
 
+      .ledger-browser {
+        border-color: #d7e0da;
+        color: #17211d;
+        background: #f5f6f4;
+      }
+
+      .ledger-browser .project-browser-bar {
+        border-color: #e8ebe8;
+        background: #ffffff;
+      }
+
+      .ledger-browser .project-browser-bar i {
+        color: #78827d;
+      }
+
+      .ledger-browser .project-browser-content > span,
+      .ledger-browser .project-browser-content em {
+        color: #238263;
+      }
+
+      .ledger-browser .project-preview-lines i {
+        background: #dfe7e2;
+      }
+
       .featured-project-copy h3 {
         margin: 12px 0;
-        font-size: clamp(1.7rem, 4vw, 2.6rem);
+        font-size: clamp(1.5rem, 2.5vw, 2rem);
         letter-spacing: -0.05em;
         text-transform: uppercase;
       }
 
       .featured-project-copy > p {
-        max-width: 460px;
         margin: 0;
         color: #a7aaa2;
         line-height: 1.7;
@@ -1722,7 +1765,8 @@
       }
 
       .featured-project-copy .project-open {
-        margin-top: 22px;
+        margin-top: auto;
+        padding-top: 22px;
       }
 
       .work-card {
@@ -2107,10 +2151,6 @@
         grid-template-columns: 1fr;
       }
 
-      .featured-project {
-        grid-template-columns: 1fr;
-      }
-
       .project-preview {
         min-height: 250px;
       }
@@ -2271,6 +2311,12 @@
       background: rgba(255, 255, 255, 0.7);
     }
 
+    @media (max-width: 760px) {
+      .project-showcase-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     :root[data-theme="light"] .work-card,
     :root[data-theme="light"] .project-card,
     :root[data-theme="light"] .interest-card,
@@ -2302,6 +2348,11 @@
       box-shadow: 0 30px 56px rgba(23, 32, 51, 0.18);
     }
 
+    :root[data-theme="light"] .featured-project:hover {
+      border-color: rgba(56, 88, 214, 0.42);
+      box-shadow: 0 16px 38px rgba(23, 32, 51, 0.12);
+    }
+
     :root[data-theme="light"] .project-browser-bar {
       border-color: var(--line);
       background: #f3f5f9;
@@ -2317,6 +2368,10 @@
 
     :root[data-theme="light"] .project-browser-bar > span:nth-child(3) {
       background: #6bbf9a;
+    }
+
+    :root[data-theme="light"] .project-browser.ledger-browser .project-browser-bar > span:nth-child(3) {
+      background: #238263;
     }
 
     :root[data-theme="light"] .project-browser-bar i {
