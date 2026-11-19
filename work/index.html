@@ -333,14 +333,15 @@
     }
     :root[data-theme="light"] body {
       background:
-        radial-gradient(ellipse at 9% 12%, rgba(242, 189, 82, 0.19), transparent 25%),
-        radial-gradient(ellipse at 91% 24%, rgba(233, 130, 145, 0.15), transparent 26%),
-        radial-gradient(ellipse at 14% 82%, rgba(56, 183, 163, 0.12), transparent 28%),
-        radial-gradient(ellipse at 84% 78%, rgba(142, 124, 218, 0.12), transparent 25%),
+        radial-gradient(ellipse at 9% 12%, rgba(242, 189, 82, 0.26), transparent 25%),
+        radial-gradient(ellipse at 91% 24%, rgba(233, 130, 145, 0.21), transparent 26%),
+        radial-gradient(ellipse at 14% 82%, rgba(56, 183, 163, 0.18), transparent 28%),
+        radial-gradient(ellipse at 84% 78%, rgba(142, 124, 218, 0.18), transparent 25%),
+        linear-gradient(125deg, #fff1d2 0%, #fff8ed 43%, #f2eeff 76%, #eaf8f1 100%),
         linear-gradient(rgba(91, 91, 207, 0.025) 1px, transparent 1px),
         linear-gradient(90deg, rgba(91, 91, 207, 0.025) 1px, transparent 1px),
         var(--paper);
-      background-size: auto, auto, auto, auto, 44px 44px, 44px 44px, auto;
+      background-size: auto, auto, auto, auto, auto, 44px 44px, 44px 44px, auto;
     }
     :root[data-theme="light"] header {
       background: rgba(255, 248, 237, 0.9);
@@ -353,11 +354,26 @@
       border-radius: 18px;
       box-shadow: 0 14px 34px rgba(62, 57, 89, 0.08);
     }
-    :root[data-theme="light"] .project-card:nth-child(5n + 1) { background: linear-gradient(145deg, #fff0cf, #fffefa 82%); }
-    :root[data-theme="light"] .project-card:nth-child(5n + 2) { background: linear-gradient(145deg, #e8f3ff, #fffefa 82%); }
-    :root[data-theme="light"] .project-card:nth-child(5n + 3) { background: linear-gradient(145deg, #eeeaff, #fffefa 82%); }
-    :root[data-theme="light"] .project-card:nth-child(5n + 4) { background: linear-gradient(145deg, #e7f5ef, #fffefa 82%); }
-    :root[data-theme="light"] .project-card:nth-child(5n + 5) { background: linear-gradient(145deg, #f8e9f1, #fffefa 82%); }
+    :root[data-theme="light"] .project-card:nth-child(5n + 1) { background: linear-gradient(145deg, #ffe9b8, #fff8e6 72%); }
+    :root[data-theme="light"] .project-card:nth-child(5n + 2) { background: linear-gradient(145deg, #dceaff, #f3f7ff 72%); }
+    :root[data-theme="light"] .project-card:nth-child(5n + 3) { background: linear-gradient(145deg, #e8e3ff, #f6f3ff 72%); }
+    :root[data-theme="light"] .project-card:nth-child(5n + 4) { background: linear-gradient(145deg, #def2e8, #f3faf5 72%); }
+    :root[data-theme="light"] .project-card:nth-child(5n + 5) { background: linear-gradient(145deg, #f6e1ef, #fff3f7 72%); }
+    :root[data-theme="light"] .project-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 22px;
+      width: 48px;
+      height: 5px;
+      border-radius: 0 0 5px 5px;
+      background: var(--card-accent, var(--accent));
+    }
+    :root[data-theme="light"] .project-card:nth-child(5n + 1) { --card-accent: #e8aa36; }
+    :root[data-theme="light"] .project-card:nth-child(5n + 2) { --card-accent: #5584d9; }
+    :root[data-theme="light"] .project-card:nth-child(5n + 3) { --card-accent: #8e7cda; }
+    :root[data-theme="light"] .project-card:nth-child(5n + 4) { --card-accent: #4aab88; }
+    :root[data-theme="light"] .project-card:nth-child(5n + 5) { --card-accent: #d66e86; }
     :root[data-theme="light"] .logo-preview {
       border-radius: 12px;
       background: linear-gradient(145deg, #fffefa, #f4edff);
@@ -372,7 +388,10 @@
       border-color: rgba(91, 91, 207, 0.16);
     }
     :root[data-theme="light"] .project-open {
+      padding: 8px 12px;
+      border: 1px solid rgba(91, 91, 207, 0.2);
       border-radius: 999px;
+      background: rgba(255, 254, 250, 0.72);
     }
     :root[data-theme="light"] .project-card:hover {
       border-color: rgba(91, 91, 207, 0.45);
