@@ -54,16 +54,23 @@
     .nav-contact { padding: 9px 12px; border: 1px solid #59604d; border-radius: 3px; color: var(--ink); background: transparent; font: inherit; letter-spacing: inherit; text-transform: inherit; cursor: pointer; }
     .nav-contact:hover { border-color: var(--accent); color: var(--accent); }
     .nav-theme {
-      display: grid;
-      width: 38px;
+      display: flex;
+      width: auto;
       height: 38px;
-      flex: 0 0 38px;
-      place-items: center;
+      flex: 0 0 auto;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      padding: 0 9px;
       border: 1px solid #59604d;
       border-radius: 3px;
       color: var(--ink);
       background: transparent;
-      font-size: 1rem;
+      font: inherit;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
       cursor: pointer;
     }
     .nav-theme:hover, .nav-theme:focus-visible { border-color: var(--accent); color: var(--accent); }
@@ -282,7 +289,7 @@
       nav { gap: 10px; }
       .nav-links { gap: 6px; font-size: 0.58rem; }
       .nav-contact { padding: 6px; }
-      .nav-theme { width: 32px; height: 32px; flex-basis: 32px; }
+      .nav-theme { height: 32px; gap: 3px; padding: 0 5px; font-size: 0.52rem; }
       .logo { font-size: 0.76rem; }
     }
     :root[data-theme="light"] {
@@ -348,7 +355,7 @@
         <a href="../work/index.html">My world</a>
         <a href="index.html" aria-current="page">Interests</a>
         <a href="../index.html#home">Home</a>
-        <button class="nav-theme" id="theme-toggle" type="button" aria-label="Switch to light mode" aria-pressed="false" title="Switch to light mode"><span id="theme-icon" aria-hidden="true">☾</span></button>
+        <button class="nav-theme" id="theme-toggle" type="button" aria-label="Switch to light mode" aria-pressed="false" title="Switch to light mode"><span id="theme-icon" aria-hidden="true">☾</span><span id="theme-label" aria-hidden="true">Light</span></button>
         <button class="nav-contact" type="button" data-open-contact aria-haspopup="dialog">Contact me</button>
       </div>
     </nav>
@@ -465,6 +472,7 @@
 
     const themeToggle = document.getElementById("theme-toggle");
     const themeIcon = document.getElementById("theme-icon");
+    const themeLabel = document.getElementById("theme-label");
     const themeColor = document.querySelector('meta[name="theme-color"]');
     const updateTheme = (theme) => {
       const isLight = theme === "light";
@@ -473,6 +481,7 @@
       themeToggle.setAttribute("aria-label", isLight ? "Switch to dark mode" : "Switch to light mode");
       themeToggle.title = isLight ? "Switch to dark mode" : "Switch to light mode";
       themeIcon.textContent = isLight ? "☀" : "☾";
+      themeLabel.textContent = isLight ? "Dark" : "Light";
       themeColor.setAttribute("content", isLight ? "#f7f5ef" : "#111412");
     };
     updateTheme(document.documentElement.dataset.theme);
