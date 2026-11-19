@@ -446,6 +446,18 @@
     }
     :root[data-theme="light"] .contact-dialog { border-radius: 18px; }
 
+    :root:not([data-theme="light"]) .nav-contact,
+    :root:not([data-theme="light"]) .nav-theme {
+      border-color: var(--line);
+      border-radius: 999px;
+      background: rgba(34, 31, 49, 0.72);
+    }
+    :root:not([data-theme="light"]) .nav-contact:hover,
+    :root:not([data-theme="light"]) .nav-theme:hover,
+    :root:not([data-theme="light"]) .nav-theme:focus-visible {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
     :root:not([data-theme="light"]) .capability {
       border-color: var(--line);
       border-radius: 20px;

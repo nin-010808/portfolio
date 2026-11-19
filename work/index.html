@@ -488,6 +488,12 @@
       border-radius: 999px;
       background: rgba(34, 31, 49, 0.72);
     }
+    :root:not([data-theme="light"]) .nav-contact:hover,
+    :root:not([data-theme="light"]) .nav-theme:hover,
+    :root:not([data-theme="light"]) .nav-theme:focus-visible {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
     :root:not([data-theme="light"]) .project-card {
       border-color: var(--line);
       border-radius: 18px;
