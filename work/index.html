@@ -319,6 +319,65 @@
       .free-time-visual img,
       .scroll-reveal { opacity: 1; transform: none; }
     }
+    :root[data-theme="light"] {
+      --ink: #202840;
+      --muted: #5f6b7e;
+      --paper: #fff8ed;
+      --panel: #fffefa;
+      --accent: #5b5bcf;
+      --line: #eadfce;
+      --playful-pink: #e98291;
+      --playful-mint: #6fbd9d;
+      --playful-sun: #f2bd52;
+      --playful-lavender: #8e7cda;
+    }
+    :root[data-theme="light"] body {
+      background:
+        radial-gradient(ellipse at 9% 12%, rgba(242, 189, 82, 0.19), transparent 25%),
+        radial-gradient(ellipse at 91% 24%, rgba(233, 130, 145, 0.15), transparent 26%),
+        radial-gradient(ellipse at 14% 82%, rgba(56, 183, 163, 0.12), transparent 28%),
+        radial-gradient(ellipse at 84% 78%, rgba(142, 124, 218, 0.12), transparent 25%),
+        linear-gradient(rgba(91, 91, 207, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(91, 91, 207, 0.025) 1px, transparent 1px),
+        var(--paper);
+      background-size: auto, auto, auto, auto, 44px 44px, 44px 44px, auto;
+    }
+    :root[data-theme="light"] header {
+      background: rgba(255, 248, 237, 0.9);
+      box-shadow: 0 8px 26px rgba(66, 57, 91, 0.07);
+    }
+    :root[data-theme="light"] .nav-contact,
+    :root[data-theme="light"] .nav-theme,
+    :root[data-theme="light"] .world-filter { border-radius: 999px; }
+    :root[data-theme="light"] .project-card {
+      border-radius: 18px;
+      box-shadow: 0 14px 34px rgba(62, 57, 89, 0.08);
+    }
+    :root[data-theme="light"] .project-card:nth-child(5n + 1) { background: linear-gradient(145deg, #fff0cf, #fffefa 82%); }
+    :root[data-theme="light"] .project-card:nth-child(5n + 2) { background: linear-gradient(145deg, #e8f3ff, #fffefa 82%); }
+    :root[data-theme="light"] .project-card:nth-child(5n + 3) { background: linear-gradient(145deg, #eeeaff, #fffefa 82%); }
+    :root[data-theme="light"] .project-card:nth-child(5n + 4) { background: linear-gradient(145deg, #e7f5ef, #fffefa 82%); }
+    :root[data-theme="light"] .project-card:nth-child(5n + 5) { background: linear-gradient(145deg, #f8e9f1, #fffefa 82%); }
+    :root[data-theme="light"] .logo-preview {
+      border-radius: 12px;
+      background: linear-gradient(145deg, #fffefa, #f4edff);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.8);
+    }
+    :root[data-theme="light"] .lei-photo-gallery {
+      border: 1px solid rgba(91, 91, 207, 0.16);
+      border-radius: 12px;
+      box-shadow: 0 12px 24px rgba(48, 48, 78, 0.14);
+    }
+    :root[data-theme="light"] .project-info {
+      border-color: rgba(91, 91, 207, 0.16);
+    }
+    :root[data-theme="light"] .project-open {
+      border-radius: 999px;
+    }
+    :root[data-theme="light"] .project-card:hover {
+      border-color: rgba(91, 91, 207, 0.45);
+      box-shadow: 0 20px 42px rgba(75, 66, 126, 0.14);
+    }
     @media (max-width: 700px) {
       .container { width: min(100% - 28px, 1180px); }
       .page { padding-top: 58px; }
