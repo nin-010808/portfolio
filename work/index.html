@@ -170,6 +170,12 @@
     .lei-photo-gallery img:last-child {
       grid-column: 2;
     }
+    .free-time-visual img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
     .project-info { position: relative; z-index: 1; padding-top: 16px; border-top: 1px solid #414840; }
     .project-kind { font-size: 0.66rem; }
     h2 { margin: 8px 0; font-size: 1.25rem; letter-spacing: -0.03em; text-transform: uppercase; }
@@ -329,7 +335,9 @@
       </article>
       <article class="project-card" data-category="life">
         <span class="project-label">FREE TIME</span>
-        <div class="mockup" aria-hidden="true"></div>
+        <div class="mockup free-time-visual" aria-hidden="true">
+          <img src="../images/free-time.svg" alt="" loading="lazy" decoding="async">
+        </div>
         <div class="project-info">
           <span class="project-kind">BASKETBALL · ONLINE GAMES</span>
           <h2>Time with friends</h2>
