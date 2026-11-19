@@ -2058,6 +2058,25 @@
       box-shadow: 0 14px 34px rgba(0, 0, 0, 0.2);
     }
 
+    .featured-project .project-preview > img {
+      transition: transform 280ms ease;
+    }
+
+    .featured-project:hover .project-preview > img {
+      transform: scale(1.025);
+    }
+
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 600ms ease, transform 600ms cubic-bezier(0.2, 0.65, 0.3, 1);
+    }
+
+    .scroll-reveal.is-revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     a:focus-visible,
     button:focus-visible {
       outline: 2px solid var(--blue);
@@ -2067,6 +2086,11 @@
     @media (prefers-reduced-motion: reduce) {
       html {
         scroll-behavior: auto;
+      }
+
+      .scroll-reveal {
+        opacity: 1;
+        transform: none;
       }
 
       *,
@@ -2899,6 +2923,20 @@
         setActiveSection(visibleSections[0].target.id);
       }, { rootMargin: "-25% 0px -55% 0px", threshold: [0, 0.25, 0.5, 0.75] });
       observedSections.forEach((section) => sectionObserver.observe(section));
+    }
+
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches && "IntersectionObserver" in window) {
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-revealed");
+          observer.unobserve(entry.target);
+        });
+      }, { threshold: 0.08, rootMargin: "0px 0px -32px 0px" });
+      document.querySelectorAll("main > .system-section").forEach((section) => {
+        section.classList.add("scroll-reveal");
+        revealObserver.observe(section);
+      });
     }
 
     const aboutDialog = document.getElementById("about-dialog");
