@@ -1553,8 +1553,176 @@
 
       .work-grid {
         display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 14px;
+      }
+
+      .featured-project {
+        display: grid;
+        grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+        align-items: center;
+        gap: clamp(24px, 5vw, 58px);
+        padding: clamp(20px, 4vw, 40px);
+        overflow: hidden;
+        border: 1px solid #3c433d;
+        background:
+          radial-gradient(ellipse at 12% 18%, rgba(195, 209, 122, 0.08), transparent 42%),
+          #1b201d;
+      }
+
+      .project-preview {
+        position: relative;
+        display: grid;
+        min-height: 310px;
+        place-items: center;
+        overflow: hidden;
+        border: 1px solid #485044;
+        background:
+          radial-gradient(circle at 50% 48%, rgba(195, 209, 122, 0.12), transparent 58%),
+          #141815;
+      }
+
+      .project-preview-label {
+        position: absolute;
+        top: 16px;
+        left: 18px;
+        z-index: 1;
+        color: #aeb39d;
+        font: 0.62rem Consolas, "Courier New", monospace;
+        letter-spacing: 0.1em;
+      }
+
+      .project-browser {
+        width: 88%;
+        min-height: 220px;
+        overflow: hidden;
+        border: 1px solid #59604d;
+        background: #111412;
+        box-shadow: 0 24px 48px rgba(0, 0, 0, 0.32);
+        transform: perspective(1000px) rotateY(-7deg) rotateX(1deg);
+        transition: transform 280ms ease, box-shadow 280ms ease;
+      }
+
+      .featured-project:hover .project-browser {
+        box-shadow: 0 30px 56px rgba(0, 0, 0, 0.4);
+        transform: perspective(1000px) rotateY(-3deg) translateY(-4px);
+      }
+
+      .project-browser-bar {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        min-height: 34px;
+        padding: 0 12px;
+        border-bottom: 1px solid #343a35;
+        background: #1b201d;
+      }
+
+      .project-browser-bar > span {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #687051;
+      }
+
+      .project-browser-bar > span:first-child {
+        background: #c77f61;
+      }
+
+      .project-browser-bar > span:nth-child(2) {
+        background: #e2a35c;
+      }
+
+      .project-browser-bar > span:nth-child(3) {
+        background: #c3d17a;
+      }
+
+      .project-browser-bar i {
+        margin-left: auto;
+        color: #888d84;
+        font: 0.58rem Consolas, "Courier New", monospace;
+        font-style: normal;
+      }
+
+      .project-browser-content {
+        display: flex;
+        min-height: 185px;
+        flex-direction: column;
+        justify-content: center;
+        padding: 24px clamp(18px, 4vw, 36px);
+      }
+
+      .project-browser-content > span {
+        margin-bottom: 12px;
+        color: var(--blue);
+        font: 0.6rem Consolas, "Courier New", monospace;
+        letter-spacing: 0.12em;
+      }
+
+      .project-browser-content strong {
+        max-width: 10ch;
+        font-size: clamp(1.8rem, 4vw, 3rem);
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .project-browser-content em {
+        color: var(--blue);
+        font-style: normal;
+      }
+
+      .project-preview-lines {
+        display: grid;
+        gap: 6px;
+        width: 70%;
+        margin-top: 20px;
+      }
+
+      .project-preview-lines i {
+        height: 3px;
+        background: #343a35;
+      }
+
+      .project-preview-lines i:nth-child(2) {
+        width: 78%;
+      }
+
+      .project-preview-lines i:nth-child(3) {
+        width: 54%;
+      }
+
+      .featured-project-copy h3 {
+        margin: 12px 0;
+        font-size: clamp(1.7rem, 4vw, 2.6rem);
+        letter-spacing: -0.05em;
+        text-transform: uppercase;
+      }
+
+      .featured-project-copy > p {
+        max-width: 460px;
+        margin: 0;
+        color: #a7aaa2;
+        line-height: 1.7;
+      }
+
+      .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 22px;
+      }
+
+      .project-tags span {
+        padding: 7px 10px;
+        border: 1px solid #485044;
+        color: #c5c8bf;
+        font: 0.62rem Consolas, "Courier New", monospace;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .featured-project-copy .project-open {
+        margin-top: 22px;
       }
 
       .work-card {
@@ -1939,6 +2107,14 @@
         grid-template-columns: 1fr;
       }
 
+      .featured-project {
+        grid-template-columns: 1fr;
+      }
+
+      .project-preview {
+        min-height: 250px;
+      }
+
       .work-grid[data-view="list"] .work-card {
         display: flex;
         align-items: flex-start;
@@ -2098,9 +2274,67 @@
     :root[data-theme="light"] .work-card,
     :root[data-theme="light"] .project-card,
     :root[data-theme="light"] .interest-card,
-    :root[data-theme="light"] .contact-section {
+    :root[data-theme="light"] .contact-section,
+    :root[data-theme="light"] .featured-project {
       border-color: var(--line);
       background: #ffffff;
+    }
+
+    :root[data-theme="light"] .project-preview {
+      border-color: #d0d5df;
+      background:
+        radial-gradient(circle at 50% 48%, rgba(56, 88, 214, 0.12), transparent 58%),
+        #eef1f8;
+    }
+
+    :root[data-theme="light"] .project-preview-label {
+      color: #53658f;
+    }
+
+    :root[data-theme="light"] .project-browser {
+      border-color: #c5ccd8;
+      color: var(--ink);
+      background: #ffffff;
+      box-shadow: 0 24px 48px rgba(23, 32, 51, 0.14);
+    }
+
+    :root[data-theme="light"] .featured-project:hover .project-browser {
+      box-shadow: 0 30px 56px rgba(23, 32, 51, 0.18);
+    }
+
+    :root[data-theme="light"] .project-browser-bar {
+      border-color: var(--line);
+      background: #f3f5f9;
+    }
+
+    :root[data-theme="light"] .project-browser-bar > span:first-child {
+      background: #df8375;
+    }
+
+    :root[data-theme="light"] .project-browser-bar > span:nth-child(2) {
+      background: #e8b65f;
+    }
+
+    :root[data-theme="light"] .project-browser-bar > span:nth-child(3) {
+      background: #6bbf9a;
+    }
+
+    :root[data-theme="light"] .project-browser-bar i {
+      color: var(--muted);
+    }
+
+    :root[data-theme="light"] .project-preview-lines i {
+      background: #dfe3ea;
+    }
+
+    :root[data-theme="light"] .featured-project-copy > p {
+      color: var(--muted);
+    }
+
+    :root[data-theme="light"] .project-tags span {
+      border-color: var(--line);
+      color: var(--muted);
+      background: #f8f9fc;
     }
 
     :root[data-theme="light"] .work-card {
