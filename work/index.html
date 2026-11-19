@@ -524,7 +524,7 @@
         panel.hidden = panel.dataset.dialogPanel !== name;
       });
     }
-    dialogTabs.forEach((tab, index) => {
+    dialogTabs.forEach((tab) => {
       tab.addEventListener("click", () => activateDialogTab(tab.dataset.dialogTab));
       tab.addEventListener("keydown", (event) => {
         if (!["ArrowLeft", "ArrowRight"].includes(event.key)) return;
