@@ -1600,8 +1600,7 @@
       .project-preview {
         position: relative;
         display: grid;
-        min-height: 0;
-        aspect-ratio: 1.9;
+        min-height: 250px;
         place-items: center;
         overflow: hidden;
         border: 1px solid #485044;
@@ -2955,6 +2954,12 @@
 
     .featured-project {
       position: relative;
+    }
+
+    .project-preview.campuscred-preview,
+    .project-preview.dustfall-preview {
+      min-height: 0;
+      aspect-ratio: 1.9;
     }
 
     :root[data-theme="light"] .featured-project:nth-child(4) { --card-accent: #4aab88; }
