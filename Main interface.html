@@ -2956,6 +2956,108 @@
       position: relative;
     }
 
+    :root[data-theme="light"] .featured-project:nth-child(4) { --card-accent: #4aab88; }
+    :root:not([data-theme="light"]) .featured-project:nth-child(4) { --card-accent: #8edbd2; }
+
+    :root[data-theme="light"] .project-preview.dustfall-preview,
+    :root:not([data-theme="light"]) .project-preview.dustfall-preview {
+      padding: 10px;
+      border-color: #806b4e;
+      background: radial-gradient(ellipse at 50% 45%, #393024, #211d18 72%);
+    }
+
+    .dustfall-scene {
+      display: grid;
+      min-height: 218px;
+      grid-template-rows: auto 1fr auto;
+      gap: 9px;
+      padding: 12px;
+      overflow: hidden;
+      border: 1px solid #806b4e;
+      border-radius: 8px;
+      color: #e8dcc5;
+      background: radial-gradient(ellipse at 50% 18%, #393024, #211d18 72%);
+      font: 0.52rem Consolas, "Courier New", monospace;
+      letter-spacing: 0.08em;
+    }
+
+    .dustfall-topbar,
+    .dustfall-status {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .dustfall-topbar strong {
+      color: #f1c47d;
+      letter-spacing: 0.14em;
+    }
+
+    .dustfall-arena {
+      position: relative;
+      min-height: 122px;
+      overflow: hidden;
+      border: 1px solid #4d402e;
+      background:
+        linear-gradient(rgba(140, 112, 64, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(140, 112, 64, 0.1) 1px, transparent 1px),
+        radial-gradient(ellipse at 50% 50%, #30281d, #211d18);
+      background-size: 24px 24px, 24px 24px, auto;
+    }
+
+    .dustfall-player,
+    .dustfall-enemy {
+      position: absolute;
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+    }
+
+    .dustfall-player {
+      top: 53%;
+      left: 50%;
+      border: 2px solid #d5e0b1;
+      background: #6f9c82;
+      box-shadow: 0 0 14px rgba(185, 212, 123, 0.55);
+      transform: translate(-50%, -50%);
+    }
+
+    .dustfall-enemy {
+      background: #c99b59;
+      box-shadow: 0 0 12px rgba(201, 155, 89, 0.5);
+    }
+
+    .dustfall-enemy-one { top: 20%; left: 75%; }
+    .dustfall-enemy-two { top: 38%; left: 22%; }
+    .dustfall-enemy-three { top: 74%; left: 79%; }
+
+    .dustfall-aim {
+      position: absolute;
+      top: 53%;
+      left: 50%;
+      width: 29%;
+      height: 1px;
+      background: linear-gradient(90deg, #f7d28c, transparent);
+      transform: rotate(-35deg);
+      transform-origin: left center;
+    }
+
+    .dustfall-health-track {
+      flex: 1;
+      height: 5px;
+      overflow: hidden;
+      border-radius: 99px;
+      background: #17130f;
+    }
+
+    .dustfall-health-track i {
+      display: block;
+      width: 72%;
+      height: 100%;
+      background: linear-gradient(90deg, #a84631, #e8794c);
+    }
+
     .featured-project::after {
       content: "";
       position: absolute;
