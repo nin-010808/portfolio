@@ -95,6 +95,82 @@ if ("IntersectionObserver" in window) {
   observedSections.forEach((section) => sectionObserver.observe(section));
 }
 
+const waveSvgNamespace = "http://www.w3.org/2000/svg";
+const sectionWavePaths = Array.from(document.querySelectorAll(".system-section"), (section) => {
+  const svg = document.createElementNS(waveSvgNamespace, "svg");
+  svg.classList.add("section-wave");
+  svg.setAttribute("viewBox", "0 0 1200 96");
+  svg.setAttribute("preserveAspectRatio", "none");
+  svg.setAttribute("aria-hidden", "true");
+  svg.setAttribute("focusable", "false");
+
+  const primary = document.createElementNS(waveSvgNamespace, "path");
+  primary.classList.add("section-wave__primary");
+  const secondary = document.createElementNS(waveSvgNamespace, "path");
+  secondary.classList.add("section-wave__secondary");
+  svg.append(primary, secondary);
+  section.prepend(svg);
+
+  return { primary, secondary };
+});
+
+const createWavePath = (phase, baseline) => {
+  const segmentCount = 24;
+  const points = Array.from({ length: segmentCount + 1 }, (_, index) => {
+    const progress = index / segmentCount;
+    return {
+      x: progress * 1200,
+      y: baseline + Math.sin(progress * Math.PI * 2 - phase) * 32
+    };
+  });
+  let path = `M${points[0].x} ${points[0].y}`;
+
+  for (let index = 0; index < segmentCount; index++) {
+    const previous = points[Math.max(0, index - 1)];
+    const current = points[index];
+    const next = points[index + 1];
+    const following = points[Math.min(segmentCount, index + 2)];
+    const controlOneX = current.x + (next.x - previous.x) / 6;
+    const controlOneY = current.y + (next.y - previous.y) / 6;
+    const controlTwoX = next.x - (following.x - current.x) / 6;
+    const controlTwoY = next.y - (following.y - current.y) / 6;
+    path += ` C${controlOneX} ${controlOneY} ${controlTwoX} ${controlTwoY} ${next.x} ${next.y}`;
+  }
+
+  return path;
+};
+
+const drawSectionWaves = (phase) => {
+  sectionWavePaths.forEach(({ primary, secondary }) => {
+    primary.setAttribute("d", createWavePath(phase, 42));
+    secondary.setAttribute("d", createWavePath(phase, 50));
+  });
+};
+
+const waveMotionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
+let waveAnimationFrame = 0;
+let waveAnimationStart = 0;
+const animateSectionWaves = (time) => {
+  if (waveMotionPreference.matches) return;
+  if (!waveAnimationStart) waveAnimationStart = time;
+  const phase = ((time - waveAnimationStart) / 6500) * Math.PI * 2;
+  drawSectionWaves(phase);
+  waveAnimationFrame = window.requestAnimationFrame(animateSectionWaves);
+};
+const updateSectionWaveMotion = () => {
+  window.cancelAnimationFrame(waveAnimationFrame);
+  waveAnimationStart = 0;
+  if (waveMotionPreference.matches) {
+    drawSectionWaves(0);
+    return;
+  }
+  waveAnimationFrame = window.requestAnimationFrame(animateSectionWaves);
+};
+
+drawSectionWaves(0);
+updateSectionWaveMotion();
+waveMotionPreference.addEventListener("change", updateSectionWaveMotion);
+
 if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches && "IntersectionObserver" in window) {
   const revealObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach((entry) => {
