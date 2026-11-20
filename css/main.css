@@ -727,6 +727,7 @@ h1 em {
 
 .portrait-wrap {
   min-height: 500px;
+  border-radius: 24px;
   border: 1px solid #343a35;
   background: #171b18;
   isolation: isolate;
@@ -777,6 +778,7 @@ h1 em {
   inset: 18px;
   z-index: 3;
   border: 1px solid #515a4a;
+  border-radius: 16px;
   border-radius: 2px;
   padding: 0;
   color: inherit;
@@ -2261,32 +2263,33 @@ button:focus-visible {
 }
 
 :root[data-theme="light"] .portrait-wrap::before {
-  border-color: rgba(56, 88, 214, 0.2);
-  box-shadow: 0 0 24px rgba(56, 88, 214, 0.08), inset 0 0 20px rgba(85, 199, 211, 0.08);
+  border-color: rgba(56, 88, 214, 0.34);
+  box-shadow: 0 0 30px rgba(56, 88, 214, 0.16), inset 0 0 24px rgba(85, 199, 211, 0.13);
 }
 
 :root[data-theme="light"] .portrait-wrap::after {
-  border-color: rgba(85, 199, 211, 0.4);
+  border-color: rgba(56, 183, 163, 0.58);
+  box-shadow: 0 0 22px rgba(56, 183, 163, 0.14);
 }
 
 :root[data-theme="light"] .portrait {
   border-color: #aab2c0;
   background:
-    linear-gradient(145deg, transparent 48%, rgba(56, 88, 214, 0.08) 48.2% 48.7%, transparent 49%),
+    linear-gradient(145deg, transparent 48%, rgba(56, 88, 214, 0.13) 48.2% 48.7%, transparent 49%),
     radial-gradient(ellipse at 68% 40%, #aeb8c7 0 1px, transparent 2px),
     linear-gradient(150deg, #ffffff, #e4ebfa 74%),
-    linear-gradient(110deg, transparent 38%, rgba(85, 199, 211, 0.26) 49%, transparent 60%);
+    linear-gradient(110deg, transparent 38%, rgba(56, 183, 163, 0.4) 49%, transparent 60%);
 }
 
 :root[data-theme="light"] .portrait::before {
   background:
-    linear-gradient(145deg, transparent 49.5%, rgba(56, 88, 214, 0.4) 50%, transparent 50.5%),
-    linear-gradient(90deg, transparent 49.5%, rgba(56, 88, 214, 0.12) 50%, transparent 50.5%),
-    linear-gradient(0deg, transparent 49.5%, rgba(56, 88, 214, 0.12) 50%, transparent 50.5%);
+    linear-gradient(145deg, transparent 49.5%, rgba(56, 88, 214, 0.56) 50%, transparent 50.5%),
+    linear-gradient(90deg, transparent 49.5%, rgba(56, 88, 214, 0.2) 50%, transparent 50.5%),
+    linear-gradient(0deg, transparent 49.5%, rgba(56, 88, 214, 0.2) 50%, transparent 50.5%);
 }
 
 :root[data-theme="light"] .portrait::after {
-  text-shadow: 0 0 24px rgba(56, 88, 214, 0.14);
+  text-shadow: 0 0 30px rgba(56, 88, 214, 0.26);
 }
 
 :root[data-theme="light"] .portrait-hint {
@@ -2518,13 +2521,13 @@ button:focus-visible {
 
 :root[data-theme="light"] body {
   background:
-    radial-gradient(ellipse at 9% 12%, rgba(242, 189, 82, 0.26), transparent 25%),
-    radial-gradient(ellipse at 91% 24%, rgba(233, 130, 145, 0.21), transparent 26%),
-    radial-gradient(ellipse at 14% 82%, rgba(56, 183, 163, 0.18), transparent 28%),
-    radial-gradient(ellipse at 84% 78%, rgba(142, 124, 218, 0.18), transparent 25%),
+    radial-gradient(ellipse at 9% 12%, rgba(242, 189, 82, 0.32), transparent 25%),
+    radial-gradient(ellipse at 91% 24%, rgba(233, 130, 145, 0.27), transparent 26%),
+    radial-gradient(ellipse at 14% 82%, rgba(56, 183, 163, 0.24), transparent 28%),
+    radial-gradient(ellipse at 84% 78%, rgba(142, 124, 218, 0.22), transparent 25%),
     linear-gradient(125deg, #fff1d2 0%, #fff8ed 43%, #f2eeff 76%, #eaf8f1 100%),
-    linear-gradient(rgba(91, 91, 207, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(91, 91, 207, 0.025) 1px, transparent 1px),
+    linear-gradient(rgba(91, 91, 207, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(91, 91, 207, 0.04) 1px, transparent 1px),
     var(--paper);
   background-size: auto, auto, auto, auto, auto, 44px 44px, 44px 44px, auto;
 }
@@ -2904,9 +2907,9 @@ button:focus-visible {
 }
 
 :root[data-theme="light"] {
-  --aurora-one: rgba(242, 189, 82, 0.18);
-  --aurora-two: rgba(233, 130, 145, 0.14);
-  --aurora-three: rgba(56, 183, 163, 0.12);
+  --aurora-one: rgba(242, 189, 82, 0.26);
+  --aurora-two: rgba(233, 130, 145, 0.22);
+  --aurora-three: rgba(56, 183, 163, 0.18);
 }
 
 body {
@@ -2928,6 +2931,11 @@ body::before {
   transform: translate3d(-1.5%, -1%, 0) scale(1.02);
   animation: aurora-drift 32s ease-in-out infinite alternate;
   pointer-events: none;
+}
+
+:root[data-theme="light"] body::before {
+  filter: blur(30px);
+  opacity: 0.92;
 }
 
 @keyframes aurora-drift {
