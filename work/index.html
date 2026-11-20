@@ -414,6 +414,18 @@
         flex-basis: auto;
         margin: 34px 0 18px;
       }
+      .lei-photo-gallery {
+        height: auto;
+        aspect-ratio: 9 / 10;
+        flex-basis: auto;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: repeat(3, minmax(0, 1fr));
+      }
+      .lei-photo-gallery img:last-child {
+        grid-column: 1 / -1;
+        width: calc(50% - 3.5px);
+        justify-self: center;
+      }
       .world-controls { align-items: flex-start; flex-direction: column; }
       .project-card { min-height: 360px; }
       nav { gap: 10px; }
