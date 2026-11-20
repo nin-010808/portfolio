@@ -292,6 +292,33 @@
     .dialog-panel { min-height: 150px; }
     .dialog-panel[hidden] { display: none; }
     .dialog-panel p + p { margin-top: 14px; }
+    .dialog-gallery {
+      margin-top: 28px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+    }
+    .dialog-gallery[hidden] { display: none; }
+    .dialog-gallery h3 { margin: 8px 0 16px; font-size: 1.15rem; }
+    .dialog-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .dialog-gallery-grid figure {
+      min-width: 0;
+      margin: 0;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 3px;
+      background: #111412;
+    }
+    .dialog-gallery-grid img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
     .dialog-tags {
       display: flex;
       flex-wrap: wrap;
@@ -425,6 +452,10 @@
         grid-column: 1 / -1;
         width: calc(50% - 3.5px);
         justify-self: center;
+      }
+      .dialog-gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
       }
       .world-controls { align-items: flex-start; flex-direction: column; }
       .project-card { min-height: 360px; }
@@ -698,8 +729,8 @@
         </div>
       </article>
       <article class="project-card" data-category="life">
-        <span class="project-label">MY INSPIRATION</span>
-        <div class="mockup lei-photo-gallery" role="group" aria-label="Photos of Lei">
+        <span class="project-label">OUR STORY</span>
+        <div class="mockup lei-photo-gallery" role="group" aria-label="Photo preview from our story with Lei">
           <img src="../images/lei/lei-01.jpg" alt="Close-up portrait of Lei" loading="lazy" decoding="async">
           <img src="../images/lei/lei-02.jpg" alt="Lei shown on a digital camera screen" loading="lazy" decoding="async">
           <img src="../images/lei/lei-03.jpg" alt="Lei working at a classroom desk" loading="lazy" decoding="async">
@@ -707,9 +738,9 @@
           <img src="../images/lei/lei-05.jpg" alt="Close-up low-light portrait of Lei" loading="lazy" decoding="async">
         </div>
         <div class="project-info">
-          <span class="project-kind">LEI</span>
-          <h2>My inspiration</h2>
-          <p>Lei is someone who inspires me and is part of my world.</p>
+          <span class="project-kind">LEI · OUR STORY</span>
+          <h2>Our story</h2>
+          <p>A shared journey of how we met, grew closer, and rebuilt our bond.</p>
           <button class="project-open" type="button" data-project="lei" aria-haspopup="dialog">Learn more <span aria-hidden="true">↗</span></button>
         </div>
       </article>
@@ -732,6 +763,11 @@
       <div class="dialog-panel" id="story-panel" role="tabpanel" aria-labelledby="story-tab" data-dialog-panel="story"></div>
       <div class="dialog-panel" id="role-panel" role="tabpanel" aria-labelledby="role-tab" data-dialog-panel="role" hidden></div>
       <div class="dialog-panel" id="meaning-panel" role="tabpanel" aria-labelledby="meaning-tab" data-dialog-panel="meaning" hidden></div>
+      <section class="dialog-gallery" id="lei-gallery" aria-labelledby="lei-gallery-title" hidden>
+        <span class="dialog-label">PHOTO GALLERY</span>
+        <h3 id="lei-gallery-title">Moments from our story</h3>
+        <div class="dialog-gallery-grid" id="lei-gallery-grid"></div>
+      </section>
       <ul class="dialog-tags" id="dialog-tags" aria-label="Themes"></ul>
     </div>
   </dialog>
@@ -813,15 +849,34 @@
         tags: ["Hackathon", "Teamwork", "Pitching", "Learning"]
       },
       lei: {
-        title: "Lei",
-        summary: "Lei is someone who inspires me and is part of my world.",
+        title: "Our story with Lei",
+        summary: "A shared journey of how we met, grew closer, worked through a difficult season, and rebuilt our bond.",
+        storyLabel: "Our story",
+        roleLabel: "Our journey",
+        meaningLabel: "What we learned",
         story: [
-          "Lei is someone who inspires me. She has a way of approaching challenges, learning, and sharing that motivates me to do the same.",
+          "During the first week of school, I noticed Lei before I knew her name. I admired her from afar and hoped we would eventually meet.",
+          "We properly crossed paths at Siklaban practice. Lei came over to excuse one of our groupmates, and that was when I finally learned her name. Later that day, we sang together while I played the guitar.",
+          "Our bond grew after Lei messaged me first on Instagram. We spent more time talking and sharing moments, and eventually I confessed how I felt.",
+          "Like any relationship, ours had ups and downs. A major problem caused us to distance ourselves, but I reached out so we could talk and find closure. That conversation helped us rebuild what had almost broken.",
+          "Our story is more than how it began for me; it is the time, care, difficult conversations, and effort we shared along the way."
+        ],
+        role: [
+          "Lei took the first step by messaging me, and I opened up about my feelings later. We grew closer through the time we spent together, including singing during Siklaban practice.",
+          "When a serious problem created distance, I reached out. We talked and found closure, and that conversation became a shared step toward rebuilding our connection."
         ],
         meaning: [
-          "Having someone who inspires me is one of the things that keeps me motivated."
+          "Our relationship reminds us that closeness grows through time, honest conversations, patience, and care.",
+          "A difficult chapter did not erase what we had shared. Talking helped us understand one another and begin rebuilding."
         ],
-        tags: ["Inspiration", "Lei"]
+        gallery: Array.from({ length: 17 }, (_, index) => {
+          const number = String(index + 1).padStart(2, "0");
+          return {
+            src: `../images/lei/our-story-${number}.jpg`,
+            alt: `Photo ${index + 1} from our story with Lei`
+          };
+        ],
+        tags: ["Our story", "Connection", "Growth", "Reconciliation"]
       },
       friends: {
         title: "Things I enjoy",
@@ -848,7 +903,25 @@
       if (!project) return;
       document.getElementById("dialog-title").textContent = project.title;
       document.getElementById("dialog-summary").textContent = project.summary;
+      document.getElementById("story-tab").textContent = project.storyLabel || "My story";
+      document.getElementById("role-tab").textContent = project.roleLabel || "My role";
+      document.getElementById("meaning-tab").textContent = project.meaningLabel || "What it means";
       document.getElementById("role-tab").hidden = !project.role;
+      const leiGallery = document.getElementById("lei-gallery");
+      const leiGalleryGrid = document.getElementById("lei-gallery-grid");
+      leiGallery.hidden = !project.gallery;
+      leiGalleryGrid.replaceChildren(
+        ...(project.gallery || []).map((photo) => {
+          const figure = document.createElement("figure");
+          const image = document.createElement("img");
+          image.src = photo.src;
+          image.alt = photo.alt;
+          image.loading = "lazy";
+          image.decoding = "async";
+          figure.appendChild(image);
+          return figure;
+        })
+      );
       ["story", "role", "meaning"].forEach((section) => {
         const panel = document.querySelector(`[data-dialog-panel="${section}"]`);
         panel.replaceChildren();
