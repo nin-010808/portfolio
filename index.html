@@ -3089,6 +3089,12 @@
       opacity: 1;
       filter: drop-shadow(0 0 6px var(--card-accent, var(--blue)));
     }
+
+    @media (max-width: 760px) {
+      .project-showcase-grid:has(> .featured-project:nth-child(4)) {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
