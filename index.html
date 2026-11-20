@@ -2906,6 +2906,16 @@
       pointer-events: none;
     }
 
+    .system-section::before {
+      animation: divider-wave-drift 16s linear infinite;
+    }
+
+    @keyframes divider-wave-drift {
+      to {
+        background-position: 120px 0;
+      }
+    }
+
     :root:not([data-theme="light"]) {
       --aurora-one: rgba(183, 165, 255, 0.13);
       --aurora-two: rgba(142, 219, 210, 0.1);
@@ -2949,6 +2959,10 @@
       body::before {
         animation: none;
         transform: none;
+      }
+
+      .system-section::before {
+        animation: none;
       }
     }
 
