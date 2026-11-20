@@ -2947,6 +2947,42 @@
         transform: none;
       }
     }
+
+    .featured-project {
+      position: relative;
+    }
+
+    .featured-project::after {
+      content: "";
+      position: absolute;
+      z-index: 2;
+      inset: 9px;
+      border-radius: inherit;
+      background:
+        linear-gradient(var(--card-accent, var(--blue)), var(--card-accent, var(--blue))) top left / 18px 2px no-repeat,
+        linear-gradient(var(--card-accent, var(--blue)), var(--card-accent, var(--blue))) top left / 2px 18px no-repeat,
+        linear-gradient(var(--card-accent, var(--blue)), var(--card-accent, var(--blue))) top right / 18px 2px no-repeat,
+        linear-gradient(var(--card-accent, var(--blue)), var(--card-accent, var(--blue))) top right / 2px 18px no-repeat,
+        linear-gradient(var(--card-accent, var(--blue)), var(--card-accent, var(--blue))) bottom left / 18px 2px no-repeat,
+        linear-gradient(var(--card-accent, var(--blue)), var(--card-accent, var(--blue))) bottom left / 2px 18px no-repeat,
+        linear-gradient(var(--card-accent, var(--blue)), var(--card-accent, var(--blue))) bottom right / 18px 2px no-repeat,
+        linear-gradient(var(--card-accent, var(--blue)), var(--card-accent, var(--blue))) bottom right / 2px 18px no-repeat;
+      opacity: 0.52;
+      filter: drop-shadow(0 0 3px var(--card-accent, var(--blue)));
+      transition: opacity 180ms ease, filter 180ms ease, background-size 180ms ease;
+      pointer-events: none;
+    }
+
+    .featured-project:hover::after,
+    .featured-project:focus-within::after {
+      background-size:
+        24px 2px, 2px 24px,
+        24px 2px, 2px 24px,
+        24px 2px, 2px 24px,
+        24px 2px, 2px 24px;
+      opacity: 1;
+      filter: drop-shadow(0 0 6px var(--card-accent, var(--blue)));
+    }
   </style>
 </head>
 <body>
