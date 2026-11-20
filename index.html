@@ -1566,6 +1566,10 @@
         gap: 16px;
       }
 
+      .project-showcase-grid:has(> .featured-project:nth-child(4)) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
       .featured-project {
         display: flex;
         min-width: 0;
@@ -3068,7 +3072,7 @@
           <span class="system-kicker">03 / Build log</span>
           <h2 id="projects-title">Selected projects</h2>
         </div>
-        <p>A portfolio in progress, a class ledger, and a credential verification concept.</p>
+        <p>Personal and class tools, a credential concept, and a desert survival game.</p>
       </div>
       <div class="project-showcase-grid">
         <article class="featured-project" aria-labelledby="portfolio-project-title">
@@ -3144,6 +3148,40 @@
             </button>
           </div>
         </article>
+        <a class="featured-project" href="projects/dust-fall/index.html" target="_blank" rel="noopener" aria-label="Play Dust Fall in a new tab">
+          <div class="project-preview dustfall-preview" aria-hidden="true">
+            <div class="dustfall-scene">
+              <div class="dustfall-topbar">
+                <strong>DUST FALL</strong>
+                <span>WAVE 01</span>
+                <span>SCORE 000</span>
+              </div>
+              <div class="dustfall-arena">
+                <i class="dustfall-aim"></i>
+                <i class="dustfall-enemy dustfall-enemy-one"></i>
+                <i class="dustfall-enemy dustfall-enemy-two"></i>
+                <i class="dustfall-enemy dustfall-enemy-three"></i>
+                <i class="dustfall-player"></i>
+              </div>
+              <div class="dustfall-status">
+                <span>HEALTH</span>
+                <span class="dustfall-health-track"><i></i></span>
+                <span>LV 01</span>
+              </div>
+            </div>
+          </div>
+          <div class="featured-project-copy">
+            <span class="system-index">BROWSER GAME / SURVIVAL SHOOTER</span>
+            <h3>Dust Fall</h3>
+            <p>Survive waves of enemies, collect scrap, and choose upgrades while your weapons automatically target nearby threats.</p>
+            <div class="project-tags" aria-label="Game technologies and features">
+              <span>JavaScript</span>
+              <span>Canvas</span>
+              <span>Wave survival</span>
+            </div>
+            <span class="project-open">Play Dust Fall <span aria-hidden="true">↗</span></span>
+          </div>
+        </a>
       </div>
     </section>
 
