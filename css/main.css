@@ -13,6 +13,86 @@
   box-sizing: border-box;
 }
 
+.intro-loader {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  display: none;
+  align-content: center;
+  justify-items: center;
+  gap: 20px;
+  color: #eef0ff;
+  background:
+    radial-gradient(ellipse at center, rgba(47, 34, 96, 0.3), transparent 55%),
+    #050711;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 450ms ease, visibility 450ms ease;
+}
+
+html.intro-loader-enabled .intro-loader {
+  display: grid;
+}
+
+.intro-loader.is-leaving {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.intro-loader__coin {
+  display: block;
+  width: min(64vw, 320px);
+  aspect-ratio: 1;
+  object-fit: contain;
+  filter: drop-shadow(0 0 24px rgba(90, 90, 255, 0.26));
+  animation: intro-coin-spin 1.5s ease-in-out infinite;
+}
+
+.intro-loader__label {
+  color: #b7c8ff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+}
+
+.intro-loader__track {
+  width: min(180px, 48vw);
+  height: 2px;
+  overflow: hidden;
+  border-radius: 2px;
+  background: rgba(169, 181, 255, 0.2);
+}
+
+.intro-loader__track span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #00e5ff, #a446ff);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: intro-loader-progress 2.5s linear forwards;
+}
+
+@keyframes intro-coin-spin {
+  0%, 100% {
+    transform: perspective(900px) rotateY(0deg) scale(1);
+  }
+  50% {
+    transform: perspective(900px) rotateY(180deg) scale(0.94);
+  }
+}
+
+@keyframes intro-loader-progress {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+body.intro-active {
+  overflow: hidden;
+}
+
 .skip-link {
   position: fixed;
   top: 12px;
@@ -2953,6 +3033,11 @@ body::before {
   body::before {
     animation: none;
     transform: none;
+  }
+
+  .intro-loader__coin,
+  .intro-loader__track span {
+    animation: none;
   }
 }
 
