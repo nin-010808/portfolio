@@ -14,7 +14,9 @@
   <script>
     const savedTheme = localStorage.getItem("portfolio-theme");
     document.documentElement.dataset.theme = savedTheme === "light" ? "light" : "dark";
+    document.documentElement.classList.add("intro-loader-enabled");
   </script>
+  <link rel="stylesheet" href="../css/intro-loader.css">
   <style>
     :root {
       --ink: #f2eefb;
@@ -651,6 +653,11 @@
   </style>
 </head>
 <body>
+  <div class="intro-loader" id="intro-loader" role="status" aria-label="Loading My World">
+    <img class="intro-loader__coin" src="../images/logos/emmanuel-coin.png" alt="">
+    <span class="intro-loader__label" aria-hidden="true">WELCOME TO MY WORLD</span>
+    <span class="intro-loader__track" aria-hidden="true"><span></span></span>
+  </div>
   <header>
     <nav class="container" aria-label="Main navigation">
       <a class="logo" href="../index.html#home">My Portfolio<span>.</span></a>
@@ -793,6 +800,7 @@
     </div>
   </dialog>
 
+  <script src="../js/intro-loader.js"></script>
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
