@@ -19,6 +19,13 @@ html.intro-loader-enabled .intro-loader {
   display: grid;
 }
 
+:root[data-theme="light"] .intro-loader {
+  color: #172033;
+  background:
+    radial-gradient(ellipse at center, rgba(85, 199, 211, 0.2), transparent 55%),
+    #f7f5ef;
+}
+
 .intro-loader.is-leaving {
   opacity: 0;
   visibility: hidden;
@@ -36,11 +43,19 @@ html.intro-loader-enabled .intro-loader {
   animation: intro-coin-spin 1.5s ease-in-out infinite;
 }
 
+:root[data-theme="light"] .intro-loader__coin {
+  filter: drop-shadow(0 10px 24px rgba(23, 32, 51, 0.18));
+}
+
 .intro-loader__label {
   color: #b7c8ff;
   font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.22em;
+}
+
+:root[data-theme="light"] .intro-loader__label {
+  color: #3858d6;
 }
 
 .intro-loader__track {
@@ -51,6 +66,10 @@ html.intro-loader-enabled .intro-loader {
   background: rgba(169, 181, 255, 0.2);
 }
 
+:root[data-theme="light"] .intro-loader__track {
+  background: rgba(23, 32, 51, 0.16);
+}
+
 .intro-loader__track span {
   display: block;
   width: 100%;
@@ -59,6 +78,10 @@ html.intro-loader-enabled .intro-loader {
   transform: scaleX(0);
   transform-origin: left;
   animation: intro-loader-progress 2.5s linear forwards;
+}
+
+:root[data-theme="light"] .intro-loader__track span {
+  background: linear-gradient(90deg, #00a9bd, #7652d8);
 }
 
 @keyframes intro-coin-spin {
